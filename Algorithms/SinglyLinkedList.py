@@ -37,18 +37,48 @@ def print_singly_linked_list(node, sep, fptr):
             fptr.write(sep)
 
 
+def merge(arr1, arr2):
+    dummy = SinglyLinkedListNode(0)
+    final = dummy #Final is just temp , this means that you can are just pointing l1 to different node by sorting
+
+    if not arr1:
+        return arr2
+    if not arr2:
+        return arr1
+    while arr1 and arr2:
+        if arr1.data <= arr2.data:
+            # print(final.data, "-->", arr1.data)
+            final.next = arr1
+            arr1 = arr1.next
+        else:
+            # print(final.data, "-->", arr2.data)
+            final.next = arr2
+            arr2 = arr2.next
+        final = final.next  # This one is moving Node(0) to arr1(whole thing)
+
+
+    if arr1:
+        # print(final.data, "-->", arr1.data)
+        final.next = arr1
+
+    else:
+        # print(final.data, "-->", arr2.data)
+        final.next = arr2
+
+    while final :
+        final = final.next
+    return final
+
 
 def merge_k_lists(lists):
-    final_list = []
+    size = len(lists)-1
+    if size <=1:
+        return lists
+    mid = size//2
 
-    for i,j in enumerate(lists):
-        while j:
-            print(f"{j.data}", end = "-->")
-            j = j.next
-        print()
-        
-        
+    l,r = merge_k_lists(lists[:mid]), merge_k_lists(lists[mid:])
 
+    return merge(l,r)
 
 
 if __name__ == '__main__':
