@@ -6,6 +6,7 @@ def helper(s, pos, k, slate, sum):
         return 0
     if sum == k:
         return 1
+
     if pos == len(s):
         return 0
     else:
