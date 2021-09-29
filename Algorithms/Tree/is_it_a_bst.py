@@ -1,6 +1,3 @@
-from collections import deque 
-
-
 class Node:
     def __init__(self, val ) -> None:
         self.val = val
@@ -36,69 +33,45 @@ class Node:
             elements += self.right.in_order()
         return(elements)
 
-
-
 input = [5,4,7,1,11,12,15,3]
 
-        
+tree = Node(5)
 
-tree = Node(input[0])
+# for item in range(1,len(input)):
+#     tree.insert(input[item])
 
-for item in range(1,len(input)):
-    tree.insert(input[item])
+tree.right = Node(5)
+tree.right.right = Node(5)
+tree.left = Node(5)
+tree.left.left = Node(5)
 
-def BFS(tree):
-    if not tree:
-        return "This is it"
 
-    q = deque([tree])
+box = [[True]]
+def helper(node):
 
-    result = []
+    if not node.left and not node.right: 
+        print("last step")
+        box[0] = True
+        return 
 
-    while q:
-        len_q = len(q)  
-        temp = []
-        for _ in range(0,len_q):
+    if node.left:
+        print(f"node: {node.val}, left: {node.left.val}")
 
-            node = q.popleft()
-            temp.append(node.val)
-            if node.left:
-                q.append(node.left)
-            if node.right:
-                q.append(node.right)
-        result.append(temp)
+        if node.left.val > node.val:
+            box[0] = False
+            return
+        else:
+            helper(node.left)
+
+    if node.right:
+        print(f"node: {node.val}, right: {node.right.val}")
+        if node.right.val < node.val:
+           box[0] = False
+           return
+        else:
+            helper(node.right)
     
-    return result
-    
+# tree.in_order()
 
-def DFS(tree):
-
-    if not tree.left and not tree.right:
-        return
-
-    if tree.left:
-        DFS(tree.left)
-    if tree.right:
-        DFS(tree.right)
-
-
-
-def overall(tree):
-    if not tree:
-        return []
-
-    DFS(tree)
-
-# to_print = BFS(tree)
-to_print = DFS(tree)
-print(to_print)
-
-
-
-
-
-
-
-
-
-
+helper(tree)
+print(box[0])

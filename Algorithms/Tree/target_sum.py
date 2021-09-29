@@ -1,6 +1,3 @@
-from collections import deque 
-
-
 class Node:
     def __init__(self, val ) -> None:
         self.val = val
@@ -47,58 +44,43 @@ tree = Node(input[0])
 for item in range(1,len(input)):
     tree.insert(input[item])
 
-def BFS(tree):
-    if not tree:
-        return "This is it"
 
-    q = deque([tree])
+# def dfs (node):
+#     result = []
+#     if not node.left and not node.right:
+#         return []
 
-    result = []
-
-    while q:
-        len_q = len(q)  
-        temp = []
-        for _ in range(0,len_q):
-
-            node = q.popleft()
-            temp.append(node.val)
-            if node.left:
-                q.append(node.left)
-            if node.right:
-                q.append(node.right)
-        result.append(temp)
+#     if node.left:
+#         dfs(node.left)
+#     if node.right:
+#         dfs(node.right)
     
-    return result
-    
-
-def DFS(tree):
-
-    if not tree.left and not tree.right:
-        return
-
-    if tree.left:
-        DFS(tree.left)
-    if tree.right:
-        DFS(tree.right)
+#     result.append(node.val)
+#     return result
 
 
+def overall(root, sum):
+    if not root: return False
 
-def overall(tree):
-    if not tree:
-        return []
-
-    DFS(tree)
-
-# to_print = BFS(tree)
-to_print = DFS(tree)
-print(to_print)
+    box = [False]
 
 
 
 
+    def dfs(node,target):
+        if not node.left and not node.right:
+            if target == node.val:
+                box[0] = True
+            return
+            
+        if node.left:
+            dfs(node.left, target-node.val)
+        
+        if node.right:
+            dfs(node.right, target-node.val)
+
+    dfs(root,sum)
+    return box
 
 
-
-
-
-
+print(overall(tree, 14))
