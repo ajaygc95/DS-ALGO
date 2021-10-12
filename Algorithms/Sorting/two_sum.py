@@ -1,4 +1,4 @@
-given_list =[1, 2, 3, 5, 10]
+given_list =[1, 4, 3, 5, 10]
 target = 7
 
 def pair_sum_sorted_array(numbers, target):
