@@ -1,24 +1,73 @@
-def generate_all_subsets(s):
+input = [1,2,3]
+def overall(input):
+    result = []
 
-    final = []
-    
-    def helper(input , i , subsets):
-        if i == len(input):
-            final.append("".join(subsets))
+    def helper(input, pos, slate):
+        if pos == len(input):
+            result.append(slate[:])
             return
-        
-        helper(input, i+1, subsets)
-        subsets += input[i]
-        helper(input, i+1, subsets)
-        subsets.pop()
+            
+        helper(input, pos+1, slate)
+        slate.append(input[pos])
+        helper(input, pos+1, slate)
+        slate.pop()
     
-        
-    input = s
-    i = 0
-    subsets = []
-    
-    helper(input,i, subsets)
-    
-    return final
+    helper(input,0, [])
+    return result
 
-print(generate_all_subsets("XY"))
+store = overall(input)
+print(store)
+
+print(len(store))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# def generate_all_subsets(s):
+
+#     final = []
+    
+#     def helper(input , i , subsets):
+#         if i == len(input):
+#             final.append("".join(subsets))
+#             return
+        
+#         helper(input, i+1, subsets)
+#         subsets += input[i]
+#         helper(input, i+1, subsets)
+#         subsets.pop()
+    
+        
+#     input = s
+#     i = 0
+#     subsets = []
+    
+#     helper(input,i, subsets)
+    
+#     return final
+
+# print(generate_all_subsets("XY"))
