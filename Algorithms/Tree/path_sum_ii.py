@@ -36,40 +36,39 @@ class Node:
             elements += self.right.in_order()
         return(elements)
 
-node1 = Node(100)
-node1.right = Node(120)
-node1.left = Node(50)
-node1.left.left = Node(40)
-node1.left.right = Node(45)
-node1.left.left.left = Node(20)
+node1 = Node(1)
+node1.left = Node(2)
+node1.right = Node(3)
+node1.left.left = Node(4)
+node1.left.right = Node(5)
 
 
 def overall(root):
-    if not root: return 0
-    globaldia = [[0]]
 
-    def helper(root):
-        if not root.left and not root.right:
+    globaldia = [0]
+    def helper(node):
+
+        if not node.left and not node.right:
             return 0
-        mydia = 0
-        if root.left:
-            LH = helper(root.left)
-            myheight = 1 + LH
-            mydia = 1 + LH
 
-        if root.right:
-            RH = helper(root.right)
-            myheight = max(myheight, 1+RH)
+        mydia = 0
+        if node.left:
+            LH = helper(node.left)
+            mydia = LH + 1
+        if node.right:
+
+            RH = helper(node.right)
             mydia += RH + 1
 
-        globaldia[0][0] = max(globaldia[0][0] ,mydia) 
 
-        return myheight
+        globaldia[0] = max(globaldia[0], mydia)
+
+        return mydia
 
     helper(root)
-
-    return globaldia
-
+    return globaldia[0]
 
 store = overall(node1)
 print(store)
+
+
