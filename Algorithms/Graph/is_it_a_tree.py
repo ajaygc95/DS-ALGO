@@ -46,9 +46,7 @@ def overall(input):
 
     print(adjlist)
     print(visited)
-
     return True
 
 store = overall(input)
-
 print(store)
