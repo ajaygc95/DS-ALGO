@@ -20,10 +20,28 @@ def overall(n):
 
             return 
 
-        for col in range(n):
+        for c in range(n):
 
+            if c in col or (pos+c) in posDiag or (pos-c) in negDiag:
+                continue
+
+            col.add(c)
+            posDiag.add(pos+c)
+            negDiag.add(pos-c)
+
+            board[pos][c] = "Q"
+            helper(pos+1)
             
+            col.remove(c)
+            posDiag.remove(pos+c)
+            negDiag.remove(pos-c)
+            board[pos][c] = "-"
 
 
+    helper(0)
 
-overall(4)
+    return result
+
+
+store = overall(4)
+print(store)
