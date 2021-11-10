@@ -1,26 +1,28 @@
 input = [1,2,3]
-def overall(input):
+
+
+def outer(input):
+
     result = []
 
-    def helper(input, pos, slate):
-        if pos == len(input):
+    def helper(arr, pos, slate):
+        if pos == len(arr):
             result.append(slate[:])
-            return
-            
-        helper(input, pos+1, slate)
-        slate.append(input[pos])
-        helper(input, pos+1, slate)
+            return 
+        
+        helper(arr, pos+1, slate)
+        slate.append(arr[pos])
+        helper(arr, pos+1, slate)
         slate.pop()
     
-    helper(input,0, [])
+    helper(input, 0, [])
+
     return result
 
-store = overall(input)
-print(store)
+store = outer(input)
 
-print(len(store))
-
-
+for item in store:
+    print(item)
 
 
 
@@ -47,27 +49,83 @@ print(len(store))
 
 
 
-# def generate_all_subsets(s):
 
-#     final = []
-    
-#     def helper(input , i , subsets):
-#         if i == len(input):
-#             final.append("".join(subsets))
+
+
+
+
+
+
+
+# def overall(input):
+#     result = []
+
+#     def helper(input, pos, slate):
+#         if pos == len(input):
+#             result.append(slate[:])
 #             return
-        
-#         helper(input, i+1, subsets)
-#         subsets += input[i]
-#         helper(input, i+1, subsets)
-#         subsets.pop()
+            
+#         helper(input, pos+1, slate)
+#         slate.append(input[pos])
+#         helper(input, pos+1, slate)
+#         slate.pop()
     
-        
-#     input = s
-#     i = 0
-#     subsets = []
-    
-#     helper(input,i, subsets)
-    
-#     return final
+#     helper(input,0, [])
+#     return result
 
-# print(generate_all_subsets("XY"))
+# store = overall(input)
+# print(store)
+
+# print(len(store))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# # def generate_all_subsets(s):
+
+# #     final = []
+    
+# #     def helper(input , i , subsets):
+# #         if i == len(input):
+# #             final.append("".join(subsets))
+# #             return
+        
+# #         helper(input, i+1, subsets)
+# #         subsets += input[i]
+# #         helper(input, i+1, subsets)
+# #         subsets.pop()
+    
+        
+# #     input = s
+# #     i = 0
+# #     subsets = []
+    
+# #     helper(input,i, subsets)
+    
+# #     return final
+
+# # print(generate_all_subsets("XY"))

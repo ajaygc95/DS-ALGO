@@ -1,10 +1,14 @@
-input = [5,1, 10, 3, 2]
+
+
+input = [5,1, 10, 3, 2,2]
 target = 2
 
 def swap(arr, start, end):
     arr[start], arr[end] = arr[end],arr[start]
 
 def helper(input,start, end):
+    
+
     pivot = start
     pivot_val = input[pivot]
 
@@ -23,24 +27,58 @@ def helper(input,start, end):
 
     return end
 
+def quickSort(start, end, array,k):
+    # print(array, start, end)
 
-def quick_sort(nums, k):
+    if start < end:
+        pivot = helper(array, start, end)
+        print(pivot)
 
-    pos = helper(nums, 0, len(nums)-1)
-    if pos > len(nums) - k:
-        print("==========================",k-(len(nums)-pos)) # 3 - (6-3)
-        return quick_sort(nums[:pos], k-(len(nums)-pos))
-    elif pos < len(nums) - k:
-        return quick_sort(nums[pos+1:], k)
-    else:
-        return nums[pos]
+        if pivot < len(array)-k:
+            return quickSort(start, pivot-1, array, len(array)-k)
 
-store = quick_sort(input, 2)
+        elif pivot > len(array)-k:
+
+            return quickSort(pivot+1, end, array, len(array)-k)
+        else: 
+            return array[pivot]
+
+
+
+
+
+store = quickSort(0, len(input)-1, input, len(input)-5)
+print(input)
 print(store)
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# def quick_sort(nums, k):
+
+#     pos = helper(nums, 0, len(nums)-1)
+#     if pos > len(nums) - k:
+#         print("==========================",k-(len(nums)-pos)) # 3 - (6-3)
+#         return quick_sort(nums[:pos], k-(len(nums)-pos))
+#     elif pos < len(nums) - k:
+#         return quick_sort(nums[pos+1:], k)
+#     else:
+#         return nums[pos]
 
 
 

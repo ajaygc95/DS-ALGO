@@ -1,25 +1,73 @@
 input = [1,2,3,4,7]
 
-result = []
 
-def helper(S, pos,slate, sum, K):
-    if sum > K:
-        return
-    if sum == K:
-        result.append(slate[:])
-        return True
-    if pos == len(S):
-        return
+def outer(input):
+    result = []
+
+    def helper(arr, pos, slate, sum, k):
+        if sum > k: 
+            return
+        if sum == k:
+            result.append(slate[:])
+            return
+
+        if pos == len(arr):
+            return 
+
+        helper(arr, pos+1, slate,sum,k)
+
+        slate.append(arr[pos])
+        helper(arr, pos+1, slate,sum+arr[pos],k)
+        slate.pop()
     
-    helper(S, pos+1, slate, sum, K)
-    slate.append(S[pos])
-    helper(S, pos+1, slate, sum + S[pos], K)
-    slate.pop()
+    helper(input, 0, [], 0, 11)
+
+    return result
 
 
-helper(input, 0, [], 0,11)
+store = outer(input)
+print(store)
 
-print(result)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# result = []
+
+# def helper(S, pos,slate, sum, K):
+#     if sum > K:
+#         return
+#     if sum == K:
+#         result.append(slate[:])
+#         return True
+#     if pos == len(S):
+#         return
+    
+#     helper(S, pos+1, slate, sum, K)
+#     slate.append(S[pos])
+#     helper(S, pos+1, slate, sum + S[pos], K)
+#     slate.pop()
+
+
+# helper(input, 0, [], 0,11)
+
+# print(result)
 
 
 

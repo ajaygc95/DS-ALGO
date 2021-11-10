@@ -1,6 +1,6 @@
 import heapq
 
-given_list = [ 3,3, 1, 4, 4, 5, 2, 6, 1]
+given_list = [3,3, 1, 4, 4, 5, 2, 6, 1]
 
 def frequentk(given_list):
     dict1 = {}
