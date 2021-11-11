@@ -4,7 +4,7 @@ input = ['a','a','b']
 
 
 def overall(input):
-
+    input.sort()
     result = []
 
     def helper(arr, pos, slate):
@@ -23,7 +23,7 @@ def overall(input):
             count += 1 
 
         helper(arr, pos+count, slate)
-        
+
         for choice in range(0, count+1):
             
             for op in range(choice):
