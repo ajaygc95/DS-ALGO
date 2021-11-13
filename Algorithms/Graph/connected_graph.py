@@ -1,6 +1,6 @@
 
 from collections import deque
-input = [[0,1],[1,2],[2,3],[3,4]]
+input = [[0,1],[0,2],[0,3],[1,4]]
 # 0 1
 # 1 2
 # 2 3
@@ -22,7 +22,7 @@ def overall(input):
             adjlist[dest].append(src)
 
     visited = [-1]* (len(adjlist))
-
+    
 
     def helper(root):
 
