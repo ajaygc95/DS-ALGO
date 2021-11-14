@@ -5,19 +5,64 @@ input= [3,7,2,6,6]
 
 #Identify Table
 
-dptable = [0] * (len(input)+1)
+dptable = [0]*(len(input)+1)
 
 dptable[0] = 0
-dptable[1] = 1
+dptable[1] = input[0]
 
-def helper(input):
+print(dptable)
 
-    if len(input) == 0:
-        return 0
+for i in range(2, len(dptable)):
+    max_in = -1
 
-    result = -1
+    for j in range(1, i):
+        max_in = max(dptable[i-j] + dptable[j], input[i-1])
 
-    for cut in range(1, len(input)):
+    dptable[i]  = max_in
+
+
+print(dptable)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# dptable = [0] * (len(input)+1)
+
+# dptable[0] = 0
+# dptable[1] = 1
+
+# def helper(input):
+
+#     if len(input) == 0:
+#         return 0
+
+#     result = -1
+
+#     for cut in range(1, len(input)):
         
 
 
