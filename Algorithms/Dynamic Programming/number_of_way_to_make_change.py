@@ -1,32 +1,66 @@
 input = [1,2,3]
 amount = 3
 
+dptable= [0]*(amount+1)
+dptable[0] = 1
+
+
+
+for coin in input:
+
+    for i in range(coin, amount+1):
+        print(i, dptable[i], dptable[i-coin])
+        dptable[i] = dptable[i] + dptable[i-coin]
+
+
+print(dptable[-1])
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #recursive way
 
-def swap(arr, a, b):
-    arr[a], arr[b] = arr[b], arr[a]
+# def swap(arr, a, b):
+#     arr[a], arr[b] = arr[b], arr[a]
 
-globalSum = []
-globalbox = []
-def helper(arr, pos, slate, k):
+# globalSum = []
+# globalbox = []
+# def helper(arr, pos, slate, k):
 
-    if pos == k:
-        globalSum.append(slate[:])
+#     if pos == k:
+#         globalSum.append(slate[:])
 
-    if len(arr) == pos:
-        globalbox.append(slate[:])
-        return 
+#     if len(arr) == pos:
+#         globalbox.append(slate[:])
+#         return 
 
-    helper(arr, pos+1, slate, k-arr[pos])
-    slate.append(arr[pos])  
-    helper(arr, pos+1, slate, k-arr[pos])
+#     helper(arr, pos+1, slate, k-arr[pos])
+#     slate.append(arr[pos])  
+#     helper(arr, pos+1, slate, k-arr[pos])
 
 
-store = helper(input,0,[], 3)
+# store = helper(input,0,[], 3)
 
 # print(globalbox)
-print(globalSum)
+# print(globalSum)
 
 
 
