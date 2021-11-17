@@ -17,6 +17,7 @@ def helper(arr):
             r += 1
         
         if arr[i] == "G":
+            pass
 
 
 helper(given_list)

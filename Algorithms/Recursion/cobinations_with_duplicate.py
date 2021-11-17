@@ -4,26 +4,34 @@ input= [1,1,2]
 def swap(arr, a, b):
     arr[a],arr[b] = arr[b], arr[a]
 
+
 def overall(input):
-    result = []
+    globalbox = []
+
+    tracker = {}
 
     def helper(arr, pos, slate):
 
-        if pos == len(arr):
-            result.append(slate[:])
-            return
-        else:
-            hmap = {}
-            for pick in range(pos, len(arr)):
-                if arr[pick] not in hmap:
-                    hmap[arr[pick]] = True
-                    swap(arr, pick, pos)
-                    slate.append(arr[pos])
-                    helper(arr, pos+1, slate)
-                    slate.pop()
-                    swap(arr, pick, pos)
-    helper(input, 0, [])
-    return result
+
+        if len(arr) == pos:
+            globalbox.append(slate[:])
+            return 
+
+        tracker = {}
+        
+        for pick in range(pos, len(arr)):
+            if arr[pick] not in tracker:
+                tracker[arr[pick]] = True
+                swap(arr, pick, pos)
+                slate.append(arr[pos])
+                helper(arr, pos+1, slate)
+                slate.pop()
+                swap(arr, pick, pos)
+
+    helper(input,0,[])
+
+    return globalbox
+
 
 store = overall(input)
 
@@ -40,6 +48,26 @@ for item in store :
 
 
 
+# def overall(input):
+#     result = []
+
+#     def helper(arr, pos, slate):
+
+#         if pos == len(arr):
+#             result.append(slate[:])
+#             return
+#         else:
+#             hmap = {}
+#             for pick in range(pos, len(arr)):
+#                 if arr[pick] not in hmap:
+#                     hmap[arr[pick]] = True
+#                     swap(arr, pick, pos)
+#                     slate.append(arr[pos])
+#                     helper(arr, pos+1, slate)
+#                     slate.pop()
+#                     swap(arr, pick, pos)
+#     helper(input, 0, [])
+#     return result
 
 
 
