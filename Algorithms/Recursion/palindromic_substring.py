@@ -19,7 +19,6 @@ def overall(input):
     helper(input, 0, [])
     return globalbox
 
-
 store = overall(input)
 
 for item in store:
