@@ -1,7 +1,6 @@
 def allPathsOfABinaryTree(root):
     if not root:return
     
-    
     result = []
     def helper(root, slate):
         
