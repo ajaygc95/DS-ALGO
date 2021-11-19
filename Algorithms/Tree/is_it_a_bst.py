@@ -35,43 +35,21 @@ class Node:
 
 input = [5,4,7,1,11,12,15,3]
 
-tree = Node(5)
 
-# for item in range(1,len(input)):
-#     tree.insert(input[item])
-
-tree.right = Node(5)
-tree.right.right = Node(5)
-tree.left = Node(5)
-tree.left.left = Node(5)
+tree = Node(200)
+tree.right = Node(300)
+tree.left = Node(500)
 
 
-box = [[True]]
-def helper(node):
 
-    if not node.left and not node.right: 
-        print("last step")
-        box[0] = True
-        return 
+def helper(root,left, right):
 
-    if node.left:
-        print(f"node: {node.val}, left: {node.left.val}")
-
-        if node.left.val > node.val:
-            box[0] = False
-            return
-        else:
-            helper(node.left)
-
-    if node.right:
-        print(f"node: {node.val}, right: {node.right.val}")
-        if node.right.val < node.val:
-           box[0] = False
-           return
-        else:
-            helper(node.right)
+    if not root.left and not root.right:
+        return True
     
-# tree.in_order()
+    if root.val <= root.left.val or root.val >= root.right.val:
+        return False
+    
+    return helper(root.left, left, root.val) and helper(root.right, root.val, right)
 
-helper(tree)
-print(box[0])
+print(helper(tree, float('-inf'), float('inf')))
