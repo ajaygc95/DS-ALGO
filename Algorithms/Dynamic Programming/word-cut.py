@@ -1,21 +1,79 @@
-input = "leetcode"
-words = ["leet", "code"]
+input = "ikamawesome"
+words = ["ik", "am","awesome"]
 
-
-dptable =[False] * (len(input)+1)
+dptable = [False]*(len(input)+1)
 
 dptable[0] = True
 
 
 for i in range(1, len(dptable)):
 
-    for item in range(0, i):
+    for lastword in range(0,i):
+        print(input[i-lastword-1:i])
 
-        print(input[i-item-1:i],dptable[i-item-1])
-        if input[i-item-1:i] in words and dptable[i-item-1]:
+        if dptable[i-lastword-1] and input[i-lastword-1:i] in words:
             dptable[i] = True
 
+
 print(dptable)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# dptable =[False] * (len(input)+1)
+
+# dptable[0] = True
+
+
+# for i in range(1, len(dptable)):
+
+#     for item in range(0, i):
+
+#         print(input[i-item-1:i],dptable[i-item-1])
+#         if input[i-item-1:i] in words and dptable[i-item-1]:
+#             dptable[i] = True
+
+# print(dptable)
 
 
 
