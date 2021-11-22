@@ -24,10 +24,7 @@ for i in range(1,len(dptable)):
     for item in range(1,input[i-1]+1):
 
         if i + item < len(dptable) and dptable[i]:
-            # print(input[i-1] , "is ", dptable[i])
-            # print(input[i-1], " is making {} True".format(input[i+item-1]))
 
-            # if dptable[i] :
             if not dptable[i+item]:
                 dptable[i+item] = True
 
