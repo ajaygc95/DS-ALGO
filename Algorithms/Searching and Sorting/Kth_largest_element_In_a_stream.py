@@ -7,13 +7,27 @@ def kth_largest(k, initial_stream, append_stream):
 
     heapq.heapify(heap)
 
+
+    for _ in range(len(heap)-k):
+        heapq.heappop(heap)
     
+    print(heap)
 
     values = []
 
 
+    for i in append_stream:
+
+        if len(heap)<k:
+            heapq.heappush(heap,i)
+        else:
+            if i > heap[0]:
+                heapq.heappushpop(heap,i)
+        
+        values.append(heap[0])
 
 
+    return values
 
 
 
