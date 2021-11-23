@@ -1,61 +1,50 @@
 
-
-from typing import Pattern
-
-
-input = [5,1,1,2,0,0]
+input =  [5, 1, 10, 3, 2]
 target = 2
+
 
 def swap(arr, start, end):
     arr[start], arr[end] = arr[end],arr[start]
 
 
-def helper(arr, start, end):
-    pivot_index = start
-
+def helper(array, start, end):
+      
+    # Initializing pivot's index to start
+    pivot_index = start 
+    pivot = array[pivot_index]
+      
     while start < end:
-
-        while start < len(arr) and arr[start] <= arr[pivot_index]:
+          
+        while start < len(array) and array[start] <= pivot:
             start += 1
-        
-        while arr[end] > arr[pivot_index]:
+              
+        while array[end] > pivot:
             end -= 1
+          
+        if(start < end):
+            array[start], array[end] = array[end], array[start]
+      
 
-        if start < end:
-            swap(arr, start, end)
-        
-    swap(arr, end, pivot_index)
+    array[end], array[pivot_index] = array[pivot_index], array[end]
 
     return end
 
-
 def quick_sort(arr, start, end, k):
-    print(arr)
-    if start <end:
-        partition = helper(arr, start, end)
 
-        quick_sort(arr, start, partition-1,k)
-        quick_sort(arr, partition+1, end,k)
+    partition = helper(arr, start, end)
+    print(partition)
+
+    if partition == k:
+        return arr[partition]
+    elif partition < k:
+        return quick_sort(arr, partition+1, end, k)
+    else:
+        return quick_sort(arr, start, partition-1, k)
         
 
-
-store = quick_sort(input, 0, len(input)-1, 4 )
-
+store = quick_sort(input, 0, len(input)-1, len(input)-2)
 print(input)
-
 print(store)
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
