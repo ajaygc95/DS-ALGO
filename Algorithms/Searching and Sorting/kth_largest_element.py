@@ -1,55 +1,118 @@
 
 
-input = [5,1, 10, 3, 2,2]
+from typing import Pattern
+
+
+input = [5,1,1,2,0,0]
 target = 2
 
 def swap(arr, start, end):
     arr[start], arr[end] = arr[end],arr[start]
 
-def helper(input,start, end):
-    
 
-    pivot = start
-    pivot_val = input[pivot]
+def helper(arr, start, end):
+    pivot_index = start
 
     while start < end:
-        
-        if start < len(input) and input[start] <= pivot_val:
-            start += 1
 
-        if input[end] > pivot_val:
+        while start < len(arr) and arr[start] <= arr[pivot_index]:
+            start += 1
+        
+        while arr[end] > arr[pivot_index]:
             end -= 1
 
         if start < end:
-            swap(input, start, end)
-
-    swap(input, pivot, end)
+            swap(arr, start, end)
+        
+    swap(arr, end, pivot_index)
 
     return end
 
-def quickSort(start, end, array,k):
-    # print(array, start, end)
 
-    if start < end:
-        pivot = helper(array, start, end)
-        print(pivot)
+def quick_sort(arr, start, end, k):
+    print(arr)
+    if start <end:
+        partition = helper(arr, start, end)
 
-        if pivot < len(array)-k:
-            return quickSort(start, pivot-1, array, len(array)-k)
-
-        elif pivot > len(array)-k:
-
-            return quickSort(pivot+1, end, array, len(array)-k)
-        else: 
-            return array[pivot]
+        quick_sort(arr, start, partition-1,k)
+        quick_sort(arr, partition+1, end,k)
+        
 
 
+store = quick_sort(input, 0, len(input)-1, 4 )
 
-
-
-store = quickSort(0, len(input)-1, input, len(input)-5)
 print(input)
+
 print(store)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# def helper(input,start, end):
+    
+
+#     pivot = start
+#     pivot_val = input[pivot]
+
+#     while start < end:
+        
+#         if start < len(input) and input[start] <= pivot_val:
+#             start += 1
+
+#         if input[end] > pivot_val:
+#             end -= 1
+
+#         if start < end:
+#             swap(input, start, end)
+
+#     swap(input, pivot, end)
+
+#     return end
+
+# def quickSort(start, end, array,k):
+#     # print(array, start, end)
+
+#     if start < end:
+#         pivot = helper(array, start, end)
+#         print(pivot)
+
+#         if pivot < len(array)-k:
+#             return quickSort(start, pivot-1, array, len(array)-k)
+
+#         elif pivot > len(array)-k:
+
+#             return quickSort(pivot+1, end, array, len(array)-k)
+#         else: 
+#             return array[pivot]
+
+
+
+
+
+# store = quickSort(0, len(input)-1, input, len(input)-5)
+# print(input)
+# print(store)
 
 
 
