@@ -1,23 +1,48 @@
-n = 4
-
-def helper(n)
 
 
 
+def overall(n):
+
+    col = set()
+    posDiag = set()
+    negDiag = set()
+    globalbox = []
+
+    board = [["."]*(n) for _ in range(n)]
+
+    def helper(pos):
+        if pos == n:
+            copy = [''.join(row) for row in board]
+            globalbox.append(copy)
+
+            return 
+
+        for item in range(n):
+
+
+            if item in col or (pos + item) in posDiag or (pos-item) in negDiag:
+                continue
+                
+            col.add(item)
+            posDiag.add(pos+item)
+            negDiag.add(pos-item)
+            board[pos][item] = "Q"
+
+            helper(pos+1)
+
+            col.remove(item)
+            posDiag.remove(item+pos)
+            negDiag.remove(pos-item)
+            board[pos][item] = "."
+
+    helper(0)
+    return globalbox
 
 
 
 
-
-
-
-
-
-
-
-
-
-
+store =overall(4)
+print(store)
 
 
 
@@ -81,4 +106,5 @@ def helper(n)
 
 
 # store = overall(4)
-# print(store)
+# for item in store:
+#     print(item)
