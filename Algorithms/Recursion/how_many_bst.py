@@ -1,15 +1,18 @@
-def swap(a,b,array):
-    array[a], array[b]  = array[b], array[a]
+n= 5
+dptable = [0]*(n+1)
 
-globalbox = [0]
-def how_many_bst(n, i=-1):
-    print(globalbox)
-    if n == 1 or n == 0:
-        globalbox[0] += 1
-        return 
+dptable[0] = 1
+dptable[1] = 1 
 
-    how_many_bst(n-1)* how_many_bst(i+1)
 
-input = 5
-to_print = how_many_bst(input)
-print(to_print)
+for i in range(2,len(dptable)):
+
+    for j in range(i):
+
+        print(i,j)
+
+        dptable[i] += dptable[j] * dptable[i-j-1]
+
+
+
+print(dptable)
