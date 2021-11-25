@@ -1,26 +1,29 @@
 hashmap = {
-    1: "abc",
-    2: "def",
-    3: "ghi",
-    4: "jkl",
-    5: "mno",
-    6: "pqrs",
-    7: "tuv",
-    8: "wxyz"
-}
+
+    "2": "abc",
+    "3": "def",
+    "4": "ghi",
+    "5": "jkl",
+    "6": "mno",
+    "7": "pqrs",
+    "8": "tuv",
+    "9": "wxyz"
+    }
 
 result= []
-digits = "1234567"
+digits = "12"
 def helper(pos, slate):
     if pos == len(digits):
-        result.append(slate[:])
+        result.append("".join(slate[:]))
         return
-    
-    for item in hashmap(digits[pos]):
 
-        helper(pos+1, slate + [item] )
-    
-    
+    if digits[pos] == 1 or digits[pos] == 0:
+        helper(pos+1, slate)
+    else:
+        print(digits[pos])
+        # for item in hashmap[digits[pos]]:
 
-    
- 
+        #     helper(pos+1, slate + [item] )
+
+helper(0,[])
+print(result)
