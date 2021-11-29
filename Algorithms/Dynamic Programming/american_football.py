@@ -17,13 +17,9 @@ def helper(arr, slate,target):
     
 
 # def helper2(arr, target):
-
-
-
-
-
 # helper(input, [], total)
 # print(globalbox[0])
+
 
 dptable = [0]*(total+1)
 dptable[0] = 1
@@ -34,5 +30,5 @@ for i in range(len(dptable)):
 
         if i-score >=0:
             dptable[i] += dptable[i-score]
-    
+
 print(dptable[-1])
