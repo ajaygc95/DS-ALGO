@@ -77,7 +77,7 @@
 n=6
 
 
-input = [1,2,4,5]
+input = [1,5,11,5]
 print(sum(input))
 sum = int(sum(input)/2)
 
@@ -93,20 +93,29 @@ for i in range(len(dptable)):
 print()
 
 
-for  item in range(len(input)):
-    print(item)
+# for  item in range(len(input)):
+#     print(item)
 
-    for i in range(1, len(dptable)):
-        # # print(f"  {i} ", end="...")
-        # print(i,sum-input[item])
-        # # print(dptable[i][1])
-        dptable[item][i] = dptable[sum-input[item]][i-1] or dptable[sum][i-1]
+#     for i in range(1, len(dptable)):
+#         # # print(f"  {i} ", end="...")
+#         # print(i,sum-input[item])
+#         # # print(dptable[i][1])
+        
+#         if 0 <= sum-input[item] < sum:
+#             dptable[item][i] = dptable[i-1][sum-input[item]] or dptable[i-1][sum]
 
 
 
-            # print(dptable[input[item]][i])
 
-            # dptable[input[item]][i] = dptable[sum - input[item]][i-1] or dptable[sum][i-1]
-    print()
+
+for pos in range(len(input)-1, -1, -1):
+    print(pos)
+
+    for target in range(1, len(dptable[0])):
+
+        if input[pos] <= target:
+
+            dptable[pos][target] = dptable[pos+1][target-input[pos]] or dptable[pos+1][target]
+
 for item in dptable:
     print(item)
