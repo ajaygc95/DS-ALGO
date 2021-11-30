@@ -70,42 +70,43 @@
             
 #     #         dptable[i] = dptable[i-item]
     
-
 # print()    
 # print(dptable)
-
 
 
 n=6
 
 
-input = [1,5,11,23]
-
+input = [1,2,4,5]
+print(sum(input))
 sum = int(sum(input)/2)
 
-dptable = [False]*(sum+1)
 
-
-
-
-dptable[0] = True
-
+dptable = [[False]*(sum+1) for _ in range(len(input)+1)]
 
 for i in range(len(dptable)):
+    dptable[i][0]= True
 
-    for num in input:
+# for i in range(len(dptable[0])):
+#     print(f"  {i}....", end="")
 
-        if i - num >=0 and i-num <=len(dptable):
-
-            dptable[i] = dptable[i] or dptable[i-num]
-        
-        dptable[num] = True
+print()
 
 
+for  item in range(len(input)):
+    print(item)
 
-print(dptable)
+    for i in range(1, len(dptable)):
+        # # print(f"  {i} ", end="...")
+        # print(i,sum-input[item])
+        # # print(dptable[i][1])
+        dptable[item][i] = dptable[sum-input[item]][i-1] or dptable[sum][i-1]
 
 
-# result = False or True
 
-# print(result)
+            # print(dptable[input[item]][i])
+
+            # dptable[input[item]][i] = dptable[sum - input[item]][i-1] or dptable[sum][i-1]
+    print()
+for item in dptable:
+    print(item)
