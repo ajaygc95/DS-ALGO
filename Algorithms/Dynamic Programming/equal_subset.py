@@ -108,14 +108,14 @@ print()
 
 
 
-for pos in range(len(input)-1, -1, -1):
-    print(pos)
+# for pos in range(len(input)-1, -1, -1):
+#     print(pos)
 
-    for target in range(1, len(dptable[0])):
+#     for target in range(1, len(dptable[0])):
 
-        if input[pos] <= target:
+#         if input[pos] <= target:
 
-            dptable[pos][target] = dptable[pos+1][target-input[pos]] or dptable[pos+1][target]
+#             dptable[pos][target] = dptable[pos+1][target-input[pos]] or dptable[pos+1][target]
 
-for item in dptable:
-    print(item)
+# for item in dptable:
+#     print(item)
