@@ -4,37 +4,25 @@ new_path = {1: [6, 8], 2: [7, 9], 3:[4, 8], 4: [3, 9, 0], 5: [],
              6: [0, 1, 7], 7: [6, 2], 8: [1, 3], 9: [2, 4], 0: [4, 6]}
 
 
+dptable = [[0]*(len(new_path)) for _ in range(n) ]
 
-dptable = [[1]*(n) for _ in range(10)]
+
+for i in range(len(dptable[0])):
+    dptable[0][i] = 1
+
+# for item in dptable:
+#     print(item)
 
 
-for item in dptable:
-    print(item)
 
 for i in range(1,n):
-
     for j in range(10):
-
-        for 
-
-
-
+        
+        for item in new_path[j]:
+            dptable[i][j] += dptable[i-1][item]
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+print(dptable[-1][-1])
 
 # dp = [1]* 10
 # print(dp)

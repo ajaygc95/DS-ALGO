@@ -1,3 +1,38 @@
+'''
+             (0, 7)
+        (1,6)       (1,7)
+    (2,4)   (2,6)
+(3,0) (3,4)                    
+
+'''
+
+
+arr = [10, -3, 7, 2, 1, 3]
+total = sum(arr)
+target = int(total/2)
+
+dptable = [[False]*(target+1) for _ in range(len(arr))]
+
+
+for i in range(len(dptable)):
+
+    dptable[i][0] = True
+
+        
+    
+            
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -74,23 +109,23 @@
 # print(dptable)
 
 
-n=6
+# n=6
 
 
-input = [1,5,11,5]
-print(sum(input))
-sum = int(sum(input)/2)
+# input = [1,5,11,5]
+# print(sum(input))
+# sum = int(sum(input)/2)
 
 
-dptable = [[False]*(sum+1) for _ in range(len(input)+1)]
+# dptable = [[False]*(sum+1) for _ in range(len(input)+1)]
 
-for i in range(len(dptable)):
-    dptable[i][0]= True
+# for i in range(len(dptable)):
+#     dptable[i][0]= True
 
-# for i in range(len(dptable[0])):
-#     print(f"  {i}....", end="")
+# # for i in range(len(dptable[0])):
+# #     print(f"  {i}....", end="")
 
-print()
+# print()
 
 
 # for  item in range(len(input)):
@@ -103,9 +138,6 @@ print()
         
 #         if 0 <= sum-input[item] < sum:
 #             dptable[item][i] = dptable[i-1][sum-input[item]] or dptable[i-1][sum]
-
-
-
 
 
 # for pos in range(len(input)-1, -1, -1):
