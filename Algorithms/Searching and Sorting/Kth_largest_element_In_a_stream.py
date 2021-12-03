@@ -5,7 +5,6 @@ input2 = [5,2,20]
 k = 2
 
 
-
 def helper(k, first_stream, second_stream):
     left = first_stream
 

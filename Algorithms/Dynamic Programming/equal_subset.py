@@ -8,15 +8,100 @@
 
 
 arr = [10, -3, 7, 2, 1, 3]
+
+arr = [1,2,4,5]
+
+
+
+
 total = sum(arr)
 target = int(total/2)
 
-dptable = [[False]*(target+1) for _ in range(len(arr))]
-
+dptable = [[False]*(target + 1) for _ in range(len(arr)+1)]
 
 for i in range(len(dptable)):
-
     dptable[i][0] = True
+
+for item in dptable:
+    print(item)
+
+for pos in range(1,len(dptable)):
+
+    for target in range(len(dptable[0])):
+
+        result = None
+
+        if target >= arr[pos-1]:
+            result = dptable[pos-1][target-arr[pos-1]]
+
+        dptable[pos][target] = result or dptable[pos-1][target]
+
+    print()
+for item in dptable:
+    print(item)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# def helper(arr, pos, target):
+    
+#     if target == 0:
+#         return True
+
+#     if len(arr) == pos:
+#         return 
+
+#     result = helper(arr, pos+1, target) or helper(arr, pos+1, target-arr[pos])
+
+#     return result
+
+
+
+
+
+# store = helper(arr, 0, total)
+# print(store)
+
+
+
+
+
+
+
+
+
+
+
+# dptable = [[False]*(target+1) for _ in range(len(arr))]
+
+
+# for i in range(len(dptable)):
+
+#     dptable[i][0] = True
 
         
     
