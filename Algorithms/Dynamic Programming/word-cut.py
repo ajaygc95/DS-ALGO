@@ -1,29 +1,60 @@
 input = "kickstartisawesome"
-words = ["kick", "start", "kickstart", "is", "awe", "some", "awesome"]
+words =  ["kick", "start", "kickstart", "is", "awe", "some", "awesome"]
 
 
-counter = set(words)
 
 
-globalcount=[0]
-def helper(arr):
-
-    if arr in words: 
-
-        return True
-
-    for i in range(len(arr)):
-        for item in range(i):
-            if arr[:item] in words and helper(arr[item:]):
-                globalcount[0] +=1 
-    return 0
+dptable = [0]*(len(input)+1)
+dptable[0] = 1
 
 
-helper(input)
-print(globalcount[0] % 1000000007)
+for i in range(1, len(dptable)):
+
+    # print("===============")
+    for word in range(i):
+
+        # print(word, input[:word], "|", input[word:i] , dptable[word])
+
+        if dptable[word] and input[word:i] in words:
+            dptable[i] += dptable[word]
+
+    print()
+
+print(end="       ")
+for item in input:
+    print( f"{item}..... ", end="")
+print()
+print(dptable)
+
+# total_len = len(input)
+
+# globalcount = [0]
+
+# aux = {}
+
+# def helper( arr, pos=0):
+
+
+#     if arr in aux :
+#         return 
+#     if pos == len(arr):
+#         globalcount[0] += 1
+#         return 
+
+#     for i in range(pos, len(arr)+1):
+
+#         if arr[pos:i] not in aux:
+#             aux[arr[pos:i]] = True
+
+#         if arr[pos:i] in words:
+#             helper(arr, i)
+
+
+
+# helper(input)
+# print(globalcount[0] )
 
 # print(globalcount[0])
-
 
     # if arr in words: 
     #     return True
