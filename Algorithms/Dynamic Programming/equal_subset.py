@@ -1,23 +1,37 @@
 '''
-             (0, 7)
+            (0, 7)
         (1,6)       (1,7)
     (2,4)   (2,6)
 (3,0) (3,4)                    
 
 '''
 
+# arr = [10, -3, 7, 2, 1, 3]
 
-arr = [10, -3, 7, 2, 1, 3]
-
-# arr = [1,2,4,5]
-
-
-
+arr = [1,2,4,5]
 
 total = sum(arr)
 target = int(total/2)
 
 
+dptable = [[False]*(target+1) for _ in range(len(arr))]
+
+
+for i in range(len(dptable)):
+    dptable[i][0] = True
+
+
+
+
+# for item in dptable:
+#     print(item)
+
+
+
+
+
+
+
 
 # dptable = [[False]*(target + 1) for _ in range(len(arr)+1)]
 
@@ -44,21 +58,20 @@ target = int(total/2)
 
 
 
-dict1 = [[False]]
+# dict1 = [[False]]
 
-def helper(arr, pos, target):
+# def helper(arr, pos, target):
     
-    if target == 0:
-        return True
+#     if target == 0:
+#         return True
 
-    if len(arr) == pos:
-        return 
+#     if len(arr) == pos:
+#         return 
 
-    result = helper(arr, pos+1, target) or helper(arr, pos+1, target-arr[pos])
+#     result = helper(arr, pos+1, target) or helper(arr, pos+1, target-arr[pos])
 
-    dict1[pos][target] 
-    return result
-
+#     dict1[pos][target] 
+#     return result
 
 
 # dptable = [[False]*(target + 1) for _ in range(len(arr)+1)]
@@ -77,36 +90,14 @@ def helper(arr, pos, target):
 
 #         if target >= arr[pos-1]:
 #             result = dptable[pos-1][target-arr[pos-1]]
-
 #         dptable[pos][target] = result or dptable[pos-1][target]
-
 #     print()
 # for item in dptable:
 #     print(item)
-
-
-
-
-
-
-
-
-
-
-
 
 
 # store = helper(arr, 0, total)
 # print(store)
-
-
-
-
-
-
-
-
-
 
 
 # dptable = [[False]*(target+1) for _ in range(len(arr))]
@@ -115,24 +106,6 @@ def helper(arr, pos, target):
 # for i in range(len(dptable)):
 
 #     dptable[i][0] = True
-
-        
-    
-            
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 # # There are multiple partitionings where s1 sums up to 10 and s2 sums up to 10; they are all correct answers:
 
