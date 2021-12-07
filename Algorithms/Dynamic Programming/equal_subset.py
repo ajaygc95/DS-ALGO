@@ -20,7 +20,24 @@ dptable = [[False]*(target+1) for _ in range(len(arr))]
 for i in range(len(dptable)):
     dptable[i][0] = True
 
+for item in dptable:
+    print(item)
 
+for num in range(len(arr)):
+    
+    for i in range(1, len(dptable[0])):
+        result  = False
+        if i >= arr[num]:
+            print(i, arr[num],dptable[num][i-arr[num]] )
+            result = dptable[num-1][i-arr[num]]
+            print(result)
+
+        dptable[num][i] = dptable[num-1][i] or result
+    print()
+print("================================================")
+
+for item in dptable:
+    print(item)
 
 
 # for item in dptable:
@@ -46,8 +63,9 @@ for i in range(len(dptable)):
 #     for target in range(len(dptable[0])):
 
 #         result = None
-
+       
 #         if target >= arr[pos-1]:
+#             print(f"target: {target} pos {arr[pos-1]} bool:  {dptable[pos-1][target-arr[pos-1]]}")
 #             result = dptable[pos-1][target-arr[pos-1]]
 
 #         dptable[pos][target] = result or dptable[pos-1][target]

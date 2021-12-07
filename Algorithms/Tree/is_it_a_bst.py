@@ -37,19 +37,53 @@ input = [5,4,7,1,11,12,15,3]
 
 
 tree = Node(200)
-tree.right = Node(300)
-tree.left = Node(500)
+tree.right = Node(500)
+tree.left = Node(300)
 
-
-
-def helper(root,left, right):
+def helper(root, left ,right):
 
     if not root.left and not root.right:
         return True
-    
-    if root.val <= root.left.val or root.val >= root.right.val:
-        return False
-    
-    return helper(root.left, left, root.val) and helper(root.right, root.val, right)
 
-print(helper(tree, float('-inf'), float('inf')))
+    if root.val < left and root.val > right:
+        return False
+    else:
+        return helper(root.left, left, root.val) and helper(root.right, root.val, right)
+
+helper(tree,float("-inf"), float("inf"))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# def helper(root,left, right):
+
+#     if not root.left and not root.right:
+#         return True
+    
+#     if root.val <= root.left.val or root.val >= root.right.val:
+#         return False
+    
+#     return helper(root.left, left, root.val) and helper(root.right, root.val, right)
+
+# print(helper(tree, float('-inf'), float('inf')))
