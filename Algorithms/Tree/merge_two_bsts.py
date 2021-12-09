@@ -9,7 +9,7 @@ class Node:
         if self.val is None:
             self.val = new_node
             return
-        
+
         if item < self.val:
             if self.left:
                 self.left.insert(item)
@@ -24,7 +24,7 @@ class Node:
 
     def in_order(self):
         elements = []
-        print(self.val)
+
         if self.left:
             elements += self.left.in_order()
 
@@ -34,37 +34,18 @@ class Node:
         return(elements)
 
 
-node1 = Node(1)
+node1 = Node(3)
 node1.left = Node(2)
-node1.right = Node(3)
-node1.left.right = Node(5)
-node1.left.left = Node(4)
-# node1.left.right = Node(5)
+node1.left.left = Node(1)
+node1.right = Node(4)
 
-def helper(root):
+node2 = Node(6)
+node2.left = Node(5)
+node2.right = Node(7)
 
-    if not root.left:
-        return root
-    
-    new_root = helper(root.left)
-    
-    root.left.left = root.right
-    root.left.right = root
+store1 = node1.in_order()
+store2 = node2.in_order()
 
-    root.right = None
-    root.left = None
+final = store1 + store2
 
-    # new_root.left = root.right
-    # new_root.right = root
-    # root.right = None
-    # root.left = None
-
-    return new_root
-
-store = helper(node1)
-store.in_order()
-
-
-# Counter Offer
-# Interview after 3 months or so
-# Should I go for it
+print(final)
