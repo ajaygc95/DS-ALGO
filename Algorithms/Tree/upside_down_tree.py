@@ -33,58 +33,23 @@ class Node:
             elements += self.right.in_order()
         return(elements)
 
-input = [5,4,7,1,11,12,15,3]
 
+node1 = Node(1)
+node1.left = Node(2)
+node1.right = Node(3)
+# node1.right.right = Node(5)
+# node1.left.left = Node(5)
+# node1.left.right = Node(5)
 
-tree = Node(100)
-tree.right = Node(300)
-tree.left = Node(200)
+def helper(root):
 
-def helper(root, left ,right):
-    print(root.val)
-    if not root:
-        return True
-
-    if left <= root.val <= right:
-
-        return helper(root.left, left, root.val) and helper(root.right, root.val, right)
-    else: 
-        return False
-
-print(helper(tree,float("-inf"), float("inf")))
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# def helper(root,left, right):
-
-#     if not root.left and not root.right:
-#         return True
+    if not root.left and not root.right:
+        return 
     
-#     if root.val <= root.left.val or root.val >= root.right.val:
-#         return False
-    
-#     return helper(root.left, left, root.val) and helper(root.right, root.val, right)
+    new_root = Node(helper(root.left))
 
-# print(helper(tree, float('-inf'), float('inf')))
+    return new_root
+
+
+store = helper(node1)
+
