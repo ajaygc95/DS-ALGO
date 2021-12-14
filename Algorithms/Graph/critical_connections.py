@@ -51,7 +51,7 @@ def find_critical_connections(number_of_servers, connections):
                 parent[nbr] = node
                 lowestarr[node] = min(lowestarr[node], dfs(nbr))
             elif nbr != parent[node]:
-                lowestarr[node] = min(lowestarr[node], arrival[nbr])
+                lowestarr[node] = min(lowestarr[node], lowestarr[nbr])
                 
         if lowestarr[node] == arrival[node] and arrival[node] != 0:
             criticals.append([node, parent[node]])
