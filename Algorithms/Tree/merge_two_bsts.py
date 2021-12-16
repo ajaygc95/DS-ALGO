@@ -48,4 +48,30 @@ store2 = node2.in_order()
 
 final = store1 + store2
 
-print(final)
+
+
+def helper(arr, start, end):
+
+    if start > end:
+        return None
+
+    if start == end:
+        return Node(arr[start])
+
+
+
+    mid = (start + end)//2
+
+    print(final[mid])
+
+    new_root = Node(arr[mid]) 
+
+    new_root.left = helper(arr, start, mid)
+
+    new_root.right = helper(arr, mid+1, end)
+
+    return new_root
+
+store = helper(final, 0 , len(final)-1)
+store.in_order()
+
