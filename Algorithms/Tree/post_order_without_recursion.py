@@ -53,4 +53,7 @@ def helpr(root):
     q.append(root)
 
     while q :
-        q.popleft()
+        new_node = q.popleft()
+        for item in adjlist[new_node]:
+            print(item)
+
