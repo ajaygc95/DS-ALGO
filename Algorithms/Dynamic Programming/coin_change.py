@@ -2,20 +2,65 @@ a = 63
 coins = [1,5,10,21,25]
 
 
-dptable = [99999999]*(a+1)
+dptable = [999999] * (a+1)
+
 dptable[0] = 0
-dptable[coins[0]] = 1
 
-for i in range(1, len(dptable)):
-    for item in coins:
+for i in range(1,len(dptable)):
+    min_value = dptable[i]
 
-        if i -item >=0:
-            dptable[i] = min(dptable[i-item], dptable[i])
+    for coin in coins:
+        if i - coin >= 0:
+            min_value = min(min_value, dptable[i-coin])
+        
+    dptable[i] = min_value + 1
 
-    dptable[i] += 1
+print(dptable)
 
-for i,j in enumerate(dptable):
-    print(i,j)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# dptable = [99999999]*(a+1)
+# dptable[0] = 0
+# dptable[coins[0]] = 1
+
+# for i in range(1, len(dptable)):
+#     for item in coins:
+
+#         if i -item >=0:
+#             dptable[i] = min(dptable[i-item], dptable[i])
+
+#     dptable[i] += 1
+
+# for i,j in enumerate(dptable):
+#     print(i,j)
 
 
 

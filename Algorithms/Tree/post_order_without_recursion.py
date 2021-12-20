@@ -43,6 +43,7 @@ node1.left.right = Node(500)
 node1.in_order()
 
 from collections import deque
+
 visited = []
 
 def helpr(root):
