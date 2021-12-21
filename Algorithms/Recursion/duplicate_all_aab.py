@@ -10,23 +10,31 @@ def helper(arr, pos, slate):
     if pos == len(arr):
         globalbox.append(slate[:])
         return 
-    
-    count = 0
+
+    count = 1
 
     for index in range(pos, len(arr)):
         if arr[index] != arr[pos]:
             break
         count += 1
-    
-    helper(arr,pos+1,slate)
+    print(count)
+    #exclude decision
+    helper(arr, pos+count, slate)
 
-    for copies in range(1, count):
-        slate.append(arr[pos])
+    #include decision
+
+    for copies in range(0, count+1):
+
+        for op in range(copies):
+            slate.append(arr[pos])
+
         helper(arr, pos+count, slate)
 
-    for c in range(1, count):
-        slate.pop()
+        for op in range(copies):
+            slate.pop()
 
+
+input.sort()
 helper(input, 0, [])
 
 for item in globalbox:
