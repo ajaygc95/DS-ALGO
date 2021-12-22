@@ -1,10 +1,40 @@
 input = [1,2,3,4,7]
 target = 11
 
+result = []
+
+def helper(arr, pos, sum ,target, slate):
+
+    if sum > target:
+        return 
+
+    if sum == target:
+        result.append(slate[:])
+        return
+
+    if pos == len(arr):
+        return 
+
+    helper(arr, pos+1, sum, target, slate)
+    slate.append(arr[pos])
+    helper(arr, pos+1, sum + arr[pos], target, slate )
+    slate.pop()
 
 
-store = outer(input)
-print(store)
+helper(input, 0, 0, 11, [])
+
+print(result)
+
+
+
+
+
+
+
+
+
+
+
 
 
 
