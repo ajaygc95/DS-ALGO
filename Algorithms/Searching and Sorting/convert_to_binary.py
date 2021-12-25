@@ -1,14 +1,21 @@
-number = 23
-x = 2
+digits = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_-"
+
+number = 125
+x = 64
 result = ""
+
+h_map = {}
 
 while number >= x:
     quotient = number//x
     remainder = number%x
-    result += str(remainder)
+    result += str(digits[remainder])
     number = quotient
 
-result += str(number)
+if number > 0:
+    result += str(digits[number])
 
-print(result[::-1])
-
+decoded = result[::-1]
+initial = "https://bit-ly/" 
+final = initial + decoded
+print(final)
