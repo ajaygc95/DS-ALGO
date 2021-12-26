@@ -48,13 +48,12 @@ def helper(root):
     q.append(root)
 
     while q:
-
         len_q = len(q)
         temp = []
+
         for _ in range(len_q):
 
             new_node = q.pop()
-
             if new_node:
                 q.append(new_node.left)
                 q.append(new_node.right)
