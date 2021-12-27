@@ -1,9 +1,15 @@
 def is_pal(word, left, right):
-    print(word, left, right)
+
     # print(f"pos: {left} --> '{word[left]}' and i: {right} -->'{word[right]}'")
     word1 = word[left:right]
+
+    # print(f"word: {word1} len: {len(word1)}")
+
+    if len(word1) == 0:
+        return False
+
     if word1 == word1[::-1]:
-        print("y_pali", word1)
+        # print("y_pali", word1)
         return True
     else:
         return False
@@ -16,15 +22,24 @@ input = "abar"
 def palindromic_decomposition(arr, pos, slate):
 
     if pos == len(arr):
-        print("end")
-        return
+        real_final.append(slate[:])
+        return  
 
-    if is_pal(arr,0,pos):
-        palindromic_decomposition(arr, pos+1, slate)
+    for i in range(pos, len(arr)):
 
-palindromic_decomposition(input,0, [])
+        if is_pal(arr, pos, i):
+            if i != 0:
+                palindromic_decomposition(arr, pos+1, arr[pos:i-pos+1]  )
+        else:
+            palindromic_decomposition(arr, pos+1, slate + "|" + arr[pos:i-pos+1])
+
+           
 
 
+
+palindromic_decomposition(input,0,"")
+for item in real_final:
+    print(item)
 
 
 
