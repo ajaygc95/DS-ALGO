@@ -22,24 +22,17 @@ input = "abar"
 def palindromic_decomposition(arr, pos, slate):
 
     if pos == len(arr):
-        real_final.append(slate[:])
+        real_final.append("|".join(slate[:]))
         return  
 
-    for i in range(pos, len(arr)):
+    for i in range(pos+1, len(arr)+1):
+        if  is_pal(arr, pos, i):
+            slate.append(arr[pos:i])
+            palindromic_decomposition(arr, i, slate)
+            slate.pop()
 
-        if is_pal(arr, pos, i):
-            if i != 0:
-                palindromic_decomposition(arr, pos+1, arr[pos:i-pos+1]  )
-        else:
-            palindromic_decomposition(arr, pos+1, slate + "|" + arr[pos:i-pos+1])
-
-           
-
-
-
-palindromic_decomposition(input,0,"")
-for item in real_final:
-    print(item)
+palindromic_decomposition(input,0,[])
+print(real_final)
 
 
 
