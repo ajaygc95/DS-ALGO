@@ -28,8 +28,6 @@ class DoublyLinkedList:
 
 
 
-            
-
     def prepend(self,data):
         if not self.head:
             new_node = Node(data)
@@ -44,14 +42,12 @@ class DoublyLinkedList:
             self.head = new_node
             temp = None
 
-
     def view(self):
         temp = self.head
         while temp :
             print(temp.val, end=" --> ")
             temp = temp.next
         print("None")
-
 
 
 dll = DoublyLinkedList()
