@@ -72,20 +72,15 @@ class LinkedList:
 
         count = 0
        
-        while temp:
-            if count == pos:
-                break
+        while temp and count != pos:
             count += 1
             prev = temp
             temp = temp.next
 
         if count >0:
             prev.next = temp.next
+            temp = None
         
-            
-
-
-
     def view(self):
         temp = self.head
         while temp:
