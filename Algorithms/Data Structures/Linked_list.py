@@ -114,18 +114,31 @@ class LinkedList:
             temp = temp.next
         print("None")
 
-    def reverse(self):
-        prev = None
-        temp = self.head
+    # def reverse(self):
+    #     prev = None
+    #     temp = self.head
 
-        while temp :
+    #     while temp :
+    #         holder = temp.next
+    #         temp.next = prev
+    #         prev = temp
+    #         temp = holder
+
+    #     self.head = prev
+
+
+    def reverse(self):
+
+        temp =self.head
+        prev = None
+
+        while temp:
             holder = temp.next
             temp.next = prev
             prev = temp
             temp = holder
 
         self.head = prev
-
 
 ll = LinkedList()
 ll.insert(5)
