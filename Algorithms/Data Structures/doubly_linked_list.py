@@ -57,7 +57,7 @@ class DoublyLinkedList:
                 prev = temp
                 temp = temp.next
             
-            prev.next = new_nodeggit 
+            prev.next = new_node
             new_node.next = None
 
     def view(self):
