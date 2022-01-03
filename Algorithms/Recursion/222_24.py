@@ -16,15 +16,15 @@ def output(input,target):
 
             curr_num = int(prefix)
 
+            if prefix[0] == "0":
+                return
 
-            if arr[i] == "0":
-                helper(arr, pos+1, slate + prefix, sofar + curr_num, curr_num)
+            if prevNum == None:
+                helper(arr, pos+1, slate + prefix, curr_num, curr_num)
+
             else:
-                helper(arr, pos+1, slate + "+"+ prefix, sofar + curr_num, curr_num)
-                helper(arr, pos+1, slate + "-"+ prefix, sofar - curr_num, curr_num)
-                helper(arr, pos+1, slate + "*"+ prefix, (sofar - prevNum)*(prevNum*curr_num), curr_num*prevNum)
-
-
+                helper(arr, pos+1, slate + "+" + prefix, sofar+curr_num, curr_num)
+                helper(arr, pos+1, slate + "*" + prefix, (sofar-prevNum) + (prevNum*curr_num) , prevNum* curr_num)
 
     helper(input, 0, "", 0, 0)
     return result
