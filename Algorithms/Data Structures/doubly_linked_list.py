@@ -75,6 +75,6 @@ dll.append(3)
 dll.append(4)
 dll.append(5)
 dll.append(6)
-# dll.prepend(0)
+dll.prepend(0)
 
 dll.view()
