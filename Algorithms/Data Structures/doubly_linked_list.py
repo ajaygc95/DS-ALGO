@@ -131,7 +131,6 @@ class DoublyLinkedList:
             temp = temp.next
         print("None")
 
-
 dll = DoublyLinkedList()
 dll.append(1)
 dll.append(2)
@@ -147,6 +146,5 @@ dll.add_before(7,6)
 dll.add_after(7,8)
 
 dll.delete(8)
-
 
 dll.view()
