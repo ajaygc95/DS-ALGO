@@ -1,4 +1,4 @@
-input = "123"
+input = "222"
 
 def output(input,target):
 
@@ -10,10 +10,20 @@ def output(input,target):
                 result.append(slate)
             return
 
+        for i in range(pos, len(arr)):
 
-    helper(input,0, "", 0, 0)
+            prefix = arr[pos:i+1]
+            curr_num = int(prefix)
+
+            if prev_num == 0:
+                helper(arr, i+1, slate + prefix, curr_num, sofar + curr_num)
+            else:
+                helper(arr, i+1, f"{slate}+{prefix}", sofar + prev_num, sofar + curr_num)
+                # helper(arr, pos+1, slate + '-' + prefix, sofar - prev_num, curr_num)
+                helper(arr, i+1, f"{slate}*{prefix}", sofar - prev_num + (curr_num*prev_num), curr_num*prev_num)
+
+    helper(input,0, "", 0,0)
     return result
-
 
 store = output(input, 6)
 print(store)
