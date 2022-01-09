@@ -11,7 +11,6 @@ def output(input,target):
             return
 
         for i in range(pos, len(arr)):
-
             prefix = arr[pos:i+1]
             curr_num = int(prefix)
 
