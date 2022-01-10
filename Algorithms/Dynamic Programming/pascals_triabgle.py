@@ -4,10 +4,10 @@ dptable = [ [0]*(i+1) for i in range(n)]
 
 dptable[0][0] = 1
 
+
 for col in range(len(dptable)):
     dptable[col][0] = 1
     dptable[col][-1] = 1
-
 
 for row in range(2, n):
     for col in range(1, row):
