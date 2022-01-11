@@ -1,41 +1,51 @@
 import random
-input =  [5, 1, 10, 3, 6, 8, 11,22]
+input =  [6,5,7,4,8,3,9,2,1]
 target = 2
 
 
 def swap(arr, start, end):
     arr[start], arr[end] = arr[end],arr[start]
 
-def helper(arr, start, end):
+def helper(arr, start, end, index):
 
     if start >= end:
         return
 
-    pindex = random.randint(start, end)
-
-    pivot = arr[pindex]
-
+    pindex = (start+end)//2
     swap(arr, start, pindex)
 
+    # pindex = start
+
+    pivot = arr[pindex]
+    
     left = start
 
-    for i in range(start+1, end):
+    for i in range(start+1, len(arr)):
 
         if arr[i] <= pivot:
             left += 1
             swap(arr, i, left)
 
-    swap(arr, start,left)
+    swap(arr, start, left)
+    helper(arr, start, left, index)
+    helper(arr, left+1, end, index)
 
-    helper(arr, start, left-1)
-    helper(arr, left+1, end)
+    # if index == left:
+    #     return 
+    # elif index > left:
+    #     helper(arr, start, left, index)
+    # else:
+
+    #     helper(arr, left+1, end, index)
 
 
-def quick_sort(arr,start, end):
-    helper(arr,start, end)
-
-store = quick_sort(input, 0, len(input)-1)
+def quick_sort(arr,k):
+    helper(arr,0,len(arr)-1,len(arr)-1)
+    # return arr[len(arr)-1]
 print(input)
+store = quick_sort(input, 2)
+print(input)
+print(store)
 
 
 
