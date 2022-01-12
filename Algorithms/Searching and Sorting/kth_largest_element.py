@@ -11,13 +11,9 @@ def helper(arr, start, end, index):
     if start >= end:
         return
 
-    pindex = (start+end)//2
-    swap(arr, start, pindex)
-
-    # pindex = start
+    pindex = start
 
     pivot = arr[pindex]
-    
     left = start
 
     for i in range(start+1, len(arr)):
@@ -27,23 +23,24 @@ def helper(arr, start, end, index):
             swap(arr, i, left)
 
     swap(arr, start, left)
-    helper(arr, start, left, index)
-    helper(arr, left+1, end, index)
 
-    # if index == left:
-    #     return 
-    # elif index > left:
-    #     helper(arr, start, left, index)
-    # else:
-
-    #     helper(arr, left+1, end, index)
+    if index == left:
+        return 
+    elif index > left:
+        helper(arr, start, left, index)
+    else:
+        helper(arr, left+1, end, index)
 
 
 def quick_sort(arr,k):
+
     helper(arr,0,len(arr)-1,len(arr)-1)
     # return arr[len(arr)-1]
+
 print(input)
+
 store = quick_sort(input, 2)
+
 print(input)
 print(store)
 

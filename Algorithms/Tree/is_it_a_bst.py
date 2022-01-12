@@ -40,18 +40,38 @@ tree = Node(100)
 tree.right = Node(300)
 tree.left = Node(200)
 
-def helper(root, left ,right):
-    print(root.val)
-    if not root:
-        return True
 
-    if left <= root.val <= right:
 
-        return helper(root.left, left, root.val) and helper(root.right, root.val, right)
-    else: 
-        return False
 
-print(helper(tree,float("-inf"), float("inf")))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# def helper(root, left ,right):
+#     print(root.val)
+#     if not root:
+#         return True
+
+#     if left <= root.val <= right:
+
+#         return helper(root.left, left, root.val) and helper(root.right, root.val, right)
+#     else: 
+#         return False
+
+# print(helper(tree,float("-inf"), float("inf")))
 
 
 
