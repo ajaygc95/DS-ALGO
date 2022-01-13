@@ -36,10 +36,24 @@ class Node:
 input = [5,4,7,1,11,12,15,3]
 
 
-tree = Node(100)
+tree = Node(200)
 tree.right = Node(300)
-tree.left = Node(200)
+tree.left = Node(100)
 
+def is_it_a_bst(root, floor, ceiling):
+
+    if not root:
+        return True
+
+    if floor <= root.val <= ceiling:
+        return is_it_a_bst(root.left,floor,root.val) and is_it_a_bst(root.right, root.val, ceiling)
+    else:
+        return False
+
+
+print(is_it_a_bst(tree, float("-inf"), float("inf")))
+
+    
 
 
 
