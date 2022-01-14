@@ -55,25 +55,6 @@ print(is_it_a_bst(tree, float("-inf"), float("inf")))
 
     
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 # def helper(root, left ,right):
 #     print(root.val)
 #     if not root:

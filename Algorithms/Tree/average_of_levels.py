@@ -45,11 +45,7 @@ node2 = None
 
 from collections import deque
 
-
-''' 
-zig-zag
-
-'''
+tree = []
 def helper(root):
 
     if not root:
@@ -57,10 +53,11 @@ def helper(root):
 
     q = deque()
     q.append(root)
-    result = deque()
-    flag = True
+    result = []
+    average = 0.0
+    count = 0
     while q:
-        
+        count +=1
         len_q = len(q)
         temp = []
         for _ in range(len_q):
@@ -71,44 +68,19 @@ def helper(root):
 
             if node.right:
                 q.append(node.right)
+
             temp.append(node.val)
-
-        if flag:
-            result.append(temp)
-            flag = False
-        else:
-            result.append(temp[::-1])
-            flag = True
-        
-    return result
-
-# def helper(root):
-
-#     if not root:
-#         return []
-
-#     q = deque()
-#     q.append(root)
-#     result = deque()
-#     while q:
-
-#         len_q = len(q)
-#         temp = []
-#         for _ in range(len_q):
-#             node = q.popleft()
-
-#             if node.left:
-#                 q.append(node.left)
-
-#             if node.right:
-#                 q.append(node.right)
-
-#             temp.append(node.val)
-#         result.appendleft(temp)
-#     return result
-
-
+        tree.append(temp)
+        #right side of tree
+        result.append(temp[-1])
+        #largest value
+        # result.append(max(temp)) 
+        #average
+        # result.append(sum(temp)/len_q)
+    # return result
+    return count
 
 store = helper(node1)
-for item in store:
+for item in tree:
     print(item)
+print(store)
