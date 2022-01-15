@@ -45,39 +45,41 @@ node2 = None
 
 from collections import deque
 
-tree = []
-def helper(root):
 
+''' 
+zig-zag
+
+'''
+def helper(root):
+    
     if not root:
         return []
 
     q = deque()
     q.append(root)
-    result = []
-    average = 0.0
-    count = 0
+    result = deque()
+    flag = True
+    total = (0,None)
+    count = -1
     while q:
-        count +=1
+        count +=1 
         len_q = len(q)
         temp = []
+
         for _ in range(len_q):
             node = q.popleft()
+
             if node.left:
                 q.append(node.left)
+
             if node.right:
                 q.append(node.right)
             temp.append(node.val)
-        tree.append(temp)
-        #right side of tree
-        result.append(temp[-1])
-        #largest value
-        # result.append(max(temp)) 
-        #average
-        # result.append(sum(temp)/len_q)
-    # return result
-    return count
+
+        if sum(temp) > total[0]:
+            total = (sum(temp),count)
+        
+    return total[1]
 
 store = helper(node1)
-for item in tree:
-    print(item)
 print(store)
