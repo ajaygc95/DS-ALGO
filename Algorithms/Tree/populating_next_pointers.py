@@ -3,6 +3,7 @@ class Node:
         self.val = val
         self.right = None
         self.left = None
+        self.next =None
 
     def insert(self, item):
         new_node = Node(item)
@@ -34,51 +35,60 @@ class Node:
 
         return(elements)
 
-node1 = Node(3)
-node1.left = Node(9)
-node1.right = Node(6)
-node1.right.left = Node(15)
-node1.right.right = Node(7)
+node1 = Node(1)
+node1.left = Node(2)
+node1.right = Node(3) 
+
+node1.left.left = Node(4)
+node1.left.right = Node(5)
+node1.right.right = Node(6)
 node2 = None
 # node1.in_order()
 
 from collections import deque
+from sqlite3 import paramstyle
 
 
 ''' 
 zig-zag
 
 '''
-def helper(root):
-    
+
+parent = {}
+def helper(root,x,y):
+
+    parent[root.val] = None
     if not root:
         return []
 
     q = deque()
     q.append(root)
-    result = deque()
-    flag = True
-    total = (0,None)
-    count = 0
+
     while q:
-        count +=1 
+        
         len_q = len(q)
-        temp = []
+        for x,y in enumerate( range(len_q)):
 
-        for _ in range(len_q):
-            node = q.popleft()
+            node= q.popleft()
 
-            if node.left:
+            if x != len_q-1:
+                node.next = q[0]
+            else:
+                node.next = None
+            #     pass
+            # print(x, len_q-1, node.val)
+
+
+
+            if node.left :
                 q.append(node.left)
-
+            
             if node.right:
                 q.append(node.right)
-            temp.append(node.val)
+        
+    return root
+        
 
-        if sum(temp) > total[0]:
-            total = (sum(temp),count)
 
-    return total[1]
-
-store = helper(node1)
-print(store)
+store = helper(node1,2,3)
+print(store.next)

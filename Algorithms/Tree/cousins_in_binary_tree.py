@@ -34,51 +34,64 @@ class Node:
 
         return(elements)
 
-node1 = Node(3)
-node1.left = Node(9)
-node1.right = Node(6)
-node1.right.left = Node(15)
-node1.right.right = Node(7)
+node1 = Node(1)
+node1.left = Node(2)
+node1.right = Node(3)
+node1.left.left = Node(4)
+node1.right.right = Node(5)
 node2 = None
 # node1.in_order()
 
 from collections import deque
+from sqlite3 import paramstyle
 
 
 ''' 
 zig-zag
 
 '''
-def helper(root):
-    
+
+parent = {}
+def helper(root,x,y):
+
+    parent[root.val] = None
     if not root:
         return []
 
     q = deque()
     q.append(root)
-    result = deque()
-    flag = True
-    total = (0,None)
     count = 0
     while q:
-        count +=1 
+        
         len_q = len(q)
-        temp = []
-
         for _ in range(len_q):
-            node = q.popleft()
-
-            if node.left:
+            node= q.popleft()
+            
+            if node.left :
+                parent[node.left.val] = (node.val, count)
                 q.append(node.left)
-
+            
             if node.right:
+                parent[node.right.val] = (node.val, count)
                 q.append(node.right)
-            temp.append(node.val)
+            
+            if node.val == x:
+                x = (node.val, count)
+            if node.val == y:
+                y = (node.val, count)
+            
 
-        if sum(temp) > total[0]:
-            total = (sum(temp),count)
 
-    return total[1]
+        count += 1
+    for key, val in parent.items():
+        print(key,val)
 
-store = helper(node1)
+    print(x[1],y[1])
+    print(x,y)
+    if x[1] == y[1] and parent[x[0]] != parent[y[0]]:
+        return True
+
+    return False
+
+store = helper(node1,2,3)
 print(store)

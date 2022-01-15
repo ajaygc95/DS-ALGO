@@ -34,11 +34,11 @@ class Node:
 
         return(elements)
 
-node1 = Node(3)
-node1.left = Node(9)
+node1 = Node(5)
+node1.left = Node(5)
 node1.right = Node(6)
-node1.right.left = Node(15)
-node1.right.right = Node(7)
+node1.right.left = Node(5)
+node1.right.right = Node(5)
 node2 = None
 # node1.in_order()
 
@@ -56,14 +56,10 @@ def helper(root):
 
     q = deque()
     q.append(root)
-    result = deque()
-    flag = True
-    total = (0,None)
-    count = 0
+    value = root.val
     while q:
-        count +=1 
+
         len_q = len(q)
-        temp = []
 
         for _ in range(len_q):
             node = q.popleft()
@@ -73,12 +69,11 @@ def helper(root):
 
             if node.right:
                 q.append(node.right)
-            temp.append(node.val)
 
-        if sum(temp) > total[0]:
-            total = (sum(temp),count)
+        if node.val != value :
+            return False
 
-    return total[1]
+    return True
 
 store = helper(node1)
 print(store)
