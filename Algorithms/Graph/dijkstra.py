@@ -1,4 +1,7 @@
-graph = {
+
+
+
+adjlist = {
     0 : {1:1,2:4},
     1 : {0:1,2:4,3:2,4:7},
     2 : {0:4,1:4,3:3,4:5},
@@ -8,14 +11,16 @@ graph = {
 }
 
 
+
+captured = [-1]*len(adjlist)
+captured[0] = 1
+
+
+
 def helper(start, end, input):
 
-    parent = {}
-    visited = {key:9999 for key in input}
-    distance = {key:False for key in input}
 
-    distance[start] = 0
-    visited[start] = True
+
 
 
 
