@@ -70,7 +70,6 @@ def overall(input):
     helper(0)
 
     return result
-                
-
+                     
 store = overall(iinput)
 print(store)
