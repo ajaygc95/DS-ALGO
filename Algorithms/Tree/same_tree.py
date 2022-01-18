@@ -39,8 +39,8 @@ class Node:
         return(elements)
 
 node1 = Node(1)
-node1.left = Node(3)
-node1.right = Node(2)
+node1.left = Node(2)
+node1.right = Node(3)
 node1.left.left = Node(6)
 
 # node1.left.left = Node(5)
