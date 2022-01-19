@@ -43,11 +43,11 @@ node1.left = Node(2)
 node1.right = Node(3)
 node1.left.left = Node(6)
 
-# node1.left.left = Node(5)
-# node1.right.right = Node(9)
+node1.left.left = Node(5)
+node1.right.right = Node(9)
 
-# node1.left.left.left = Node(6)
-# node1.right.right.right = Node(7)
+node1.left.left.left = Node(6)
+node1.right.right.right = Node(7)
 
 
 def helper(root):
