@@ -1,31 +1,56 @@
+'''
+===========================================================
+================= Dijkstra's Algorithm ====================
+===========================================================
+
+'''
+
+import heapq
+from time import time
 
 
-
-adjlist = {
-    0 : {1:1,2:4},
-    1 : {0:1,2:4,3:2,4:7},
-    2 : {0:4,1:4,3:3,4:5},
-    3 : {1:2,2:3,4:4,5:6},
-    4 : {1:7, 2:5, 3:4, 5:7},
-    5 : {3:6, 4:7}
-}
+times = [[2,1,1],[2,3,1],[3,4,1]] 
+n = 4
+k = 2
 
 
-
-captured = [-1]*len(adjlist)
-captured[0] = 1
-
+def helper(times, n, k):
+    adjlist = [ [] for _ in range(n+1)]
 
 
-def helper(start, end, input):
-
-
-
-
+    for src, dest, w in times:
+        adjlist[src].append((dest, w))
 
 
 
 
+    captured = [-1]*(n+1)
+    lastdist = 0
+    numcaptured = 0
+    q = [(0,k)]
+
+    while q:
+        (dist, node) = heapq.heappop(q)
+
+        if captured[node] != -1:
+            continue
+
+        captured[node] = dist
+        lastdist = dist
+        numcaptured += 1
+        for nbr, weight in adjlist[node]:
+            if captured[nbr] == -1:
+                heapq.heappush(q,(captured[node] + weight,nbr))
+            
+        
+    if numcaptured == n:
+        return lastdist
+    else:
+        return -1
+
+        
+store = helper(times,n,k)
+print(store)
 
 
 
