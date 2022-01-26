@@ -1,8 +1,4 @@
 
-
-from this import d
-
-
 graph = {
 
     0 : [4,6],
@@ -23,9 +19,6 @@ dptable = [[0]*n for _ in range(10)]
 
 for i in range(len(dptable)):
     dptable[i][0] = 1
-
-
-
 
 
 for i in range(n):
