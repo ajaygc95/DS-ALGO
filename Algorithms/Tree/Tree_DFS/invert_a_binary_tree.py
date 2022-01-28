@@ -1,4 +1,5 @@
 import collections
+import re
 
 class Node:
     def __init__(self, val ) -> None:
@@ -27,14 +28,16 @@ class Node:
     def in_order(self):
         elements = []
 
+        elements.append(self.val)
+
         if self.left:
             elements += self.left.in_order()
-        print(self.val)
-        elements.append(self.val)
+ 
+ 
         if self.right:
             elements += self.right.in_order()
 
-        return(elements)
+        return (elements)
 
 node1 = Node(1)
 node1.left = Node(2)
@@ -46,34 +49,25 @@ node1.right.left = Node(6)
 node1.right.right = Node(7)
 node2 = None
 
+print(node1.in_order())
+print("-------")
 
-def bfs(root):
+def dfs(node):
 
-    if root is None:
-        return []
+    oldleft = node.left
+    oldright = node.right
 
-    result = []
+    node.left = oldright
+    node.right = oldleft
 
-    q = collections.deque()
-    q.append((root,[]))
-
-    while q:
-        (node, slate) = q.popleft()
-
-        slate += [node.val]
-        if node.left :
-            q.append((node.left, slate[:]))
-
-        if node.right:
-            q.append((node.right, slate[:]))
-        
-        if not node.left and not node.right:
-            result.append(slate[:])
+    if node.left:
+        dfs(node.left)
     
-    return result
+    if node.right:
+        dfs(node.right)
+
+    return node
 
 
-store = bfs(node1)
-
-for item in store:
-    print(item)
+store = dfs(node1)
+print(store.in_order())

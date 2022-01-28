@@ -1,4 +1,5 @@
 import collections
+import re
 
 class Node:
     def __init__(self, val ) -> None:
@@ -47,33 +48,3 @@ node1.right.right = Node(7)
 node2 = None
 
 
-def bfs(root):
-
-    if root is None:
-        return []
-
-    result = []
-
-    q = collections.deque()
-    q.append((root,[]))
-
-    while q:
-        (node, slate) = q.popleft()
-
-        slate += [node.val]
-        if node.left :
-            q.append((node.left, slate[:]))
-
-        if node.right:
-            q.append((node.right, slate[:]))
-        
-        if not node.left and not node.right:
-            result.append(slate[:])
-    
-    return result
-
-
-store = bfs(node1)
-
-for item in store:
-    print(item)
