@@ -6,7 +6,7 @@ s1 = "aabaac"
 s2 = "aadaaeaaf"
 s3 = "aadaaeaabaafaac"
 
-dptable = [[False]*(len(s1)+1) for _ in range(len(s2)+1)]
+dptable = [[False]*(len(s2)+1) for _ in range(len(s1)+1)]
 
 dptable[0][0] = True
 
@@ -18,7 +18,7 @@ for row in range(1, len(dptable)):
 
 for row in range(1,len(dptable)):
     for col in range(1, len(dptable[0])):
-        dptable[row][col] = (dptable[row-1][col] and ) or ()
+        dptable[row][col] = (dptable[row-1][col] and (s2[row-1] == s3[row+col-1])) or (dptable[row][col-1] and (s1[col-1] == s3[row+col-1]))
 
 
         # dptable[row][col] = ( dptable[row-1][col] and ( s1[row-1] == s3[row+col-1] )) or ( dptable[row][col-1] and ( s2[col-1] == s3[row+col-1] )) 
