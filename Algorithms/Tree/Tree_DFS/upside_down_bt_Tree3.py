@@ -33,7 +33,6 @@ class Node:
         print(self.val)
         if self.left:
             elements += self.left.in_order()
- 
 
         if self.right:
             elements += self.right.in_order()
