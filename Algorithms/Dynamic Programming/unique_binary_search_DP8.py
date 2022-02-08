@@ -1,3 +1,3 @@
-str = "1"
+str = "0"
 
-print(str.isnumeric())
+print(str.isalnum())
