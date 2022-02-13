@@ -1,29 +1,100 @@
-given_list =[1, 4, 3, 2, 5, 10]
+
+
+
+import re
+
+
+given_list = [1, 4, 3, 2, -5, 10]
+
 target = 7
-
-globalbox= []
-
-def helper(arr, target):
-
-    start = 0
-    end = len(arr)-1
-    adjlist ={}
+hash_map = {}
 
 
-    while start < end:
-        print(adjlist)
-        remaining = target- arr[start]
+def helper(nums, target):
 
-        if remaining in adjlist:
-            globalbox.append((adjlist[remaining],start))
-            return
-        adjlist[arr[start]] = start
+    i = 0
+    j = len(nums)-1
 
-        start +=1
+    while i <= j:
+        remaining = target - nums[i]
+
+        if nums[i] in hash_map:
+            return(remaining, nums[i])
+        else:
+            hash_map[remaining] = i
+        i += 1
 
 
-helper(given_list,target)
-print(globalbox)
+for i in range(len(given_list)):
+    
+    helper(given_list, given_list[i])
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# globalbox= []
+
+# def helper(arr, target):
+
+#     start = 0
+#     end = len(arr)-1
+#     adjlist ={}
+
+
+#     while start < end:
+#         print(adjlist)
+#         remaining = target- arr[start]
+
+#         if remaining in adjlist:
+#             globalbox.append((adjlist[remaining],start))
+#             return
+#         adjlist[arr[start]] = start
+
+#         start +=1
+
+
+# helper(given_list,target)
+# print(globalbox)
 
 
 
