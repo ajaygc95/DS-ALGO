@@ -1,30 +1,117 @@
-input = [-1,0,1,2,-1,-4]
+import enum
 
-arr = [1, 3, 4, 5, 7, 8, 9]
+
+
+nums =[ 1,-1,-1,0]
 
 start = 0
-end = len(arr)-1
-target = 8
 
+result = []
 
-
-
-def helper(arr, start, end,target):
+nums.sort()
+print(nums)
+result = []
+def helper(arr,start, end, target):
+    print(arr[start:])
     while start < end:
 
-        if arr[start] + arr[end] == target:
-            return (arr[start],arr[end])
+        print(start, end)
+        sum1 = arr[start] + arr[end] + target
+        print( arr[start], arr[end], target, sum1)
+        print()
         
         if arr[start] + arr[end] > target:
             end -= 1
-        if arr[start] + arr[end] < target:
+        elif arr[start] + arr[end] < target:
             start += 1
-    return False
+        else:
+            result.append([target, arr[start], arr[end] ])
+            start += 1
+            if arr[start] == arr[start-1] and start < end:
+                start += 1
 
-def overall(arr):
-    end = len(arr)-1
-    for i in range(len(arr)-1):
-        return (i, helper(arr[i:end], 0, len(arr[i:end])-1, -(i)))
+            
+final = len(nums) -1
 
-store = overall(input)
-print(store)
+for i , item in enumerate(nums):
+    if i > 0 and item == nums[i-1]:
+        continue
+    print(i, "=======")
+
+    helper(nums, i+1, final, item)
+    print()
+
+print(result)
+
+# def helper(arr):
+
+#     for i in range(len(arr)):
+#         if i > 0 and arr[i] == arr[i-1]:
+#             continue
+
+#         start, end = start + 1, len(arr)-1
+
+#         while start < end:
+#             total = arr[start] + arr[i] + arr[end]
+
+#             if 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# def helper(arr, start, end, target):
+
+#     while start <= end:
+#         if arr[start] + arr[end] == target:
+#             # result.append([arr[start],arr[end],target])
+#             return (arr[start], arr[end])
+
+#         if arr[start] + arr[end] > target:
+#             end -= 1
+#         if arr[start] + arr[end] < target:
+#             start += 1
+
+#     return False
+
+
+
+# overall(input)
+# print(result)
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+# def overall(arr):
+#    arr.sort()
+
+#    for i in range(len(arr)):
+#        if 
+
+
+
+
+
+# store = overall(input)
+# print(store)
