@@ -24,7 +24,7 @@ def helper(arr, start, end,target):
 def overall(arr):
     end = len(arr)-1
     for i in range(len(arr)-1):
-        return (i,helper(arr[i:end],0,len(arr[i:end])-1,-(i)))
+        return (i, helper(arr[i:end], 0, len(arr[i:end])-1, -(i)))
 
 store = overall(input)
 print(store)
