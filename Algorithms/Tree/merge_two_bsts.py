@@ -3,6 +3,10 @@
 
 # print(len(strings))
 
+item1 = [1,2,None,None,3,4,None,None,5,None,None]
+item2 = [1,2,None,None,3,4,None,None,5,None,None,]
+
+
 
 item = "2"
 
@@ -43,7 +47,6 @@ print(int(item))
 #             elements += self.right.in_order()
 #         return(elements)
 
-
 # node1 = Node(3)
 # node1.left = Node(2)
 # node1.left.left = Node(1)
@@ -55,33 +58,19 @@ print(int(item))
 
 # store1 = node1.in_order()
 # store2 = node2.in_order()
-
 # final = store1 + store2
 
-
-
 # def helper(arr, start, end):
-
 #     if start > end:
 #         return None
-
 #     if start == end:
 #         return Node(arr[start])
-
-
-
-#     mid = (start + end)//2
-
+#     mid = (start + end)//
 #     print(final[mid])
-
 #     new_root = Node(arr[mid]) 
-
 #     new_root.left = helper(arr, start, mid)
-
 #     new_root.right = helper(arr, mid+1, end)
-
 #     return new_root
-
 # store = helper(final, 0 , len(final)-1)
 # store.in_order()
 
