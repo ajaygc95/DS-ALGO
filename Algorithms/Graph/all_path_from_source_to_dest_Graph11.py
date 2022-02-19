@@ -15,10 +15,10 @@ class Solution:
             
             slate.pop()
             
-        result = []
-        helper(0, [])
-        return result
+        # result = []
+        # helper(0, [])
+        # return result
     
-        # T(N) --> O (2^(1/3)n) is greater than 1 
-        #      --> Exponentianl 
-        # S(N) --> Same as above
+        # # T(N) --> O (2^(1/3)n) is greater than 1 
+        # #      --> Exponentianl 
+        # # S(N) --> Same as above
