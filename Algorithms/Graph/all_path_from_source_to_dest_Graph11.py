@@ -26,14 +26,8 @@
 final = 5
 
 
-print(final)
-
 def helper(somehting):
-
-
     final += 2
-
-    print(final)
 
 helper(2)
 print(final)
