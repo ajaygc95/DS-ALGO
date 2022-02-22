@@ -73,11 +73,11 @@ def helper(root):
             if node.right:
                 stack.append((node.right, None))
 
-        elif zone == "interim":
-            stack[-1] = (node, "departure")
-            result.append(node.val)
-            stack.pop()
-    return result
+    #     elif zone == "interim":
+    #         stack[-1] = (node, "departure")
+    #         result.append(node.val)
+    #         stack.pop()
+    # return result
 
 
 # node1.in_order()
