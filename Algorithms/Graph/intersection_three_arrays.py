@@ -22,7 +22,7 @@ while i < len(arr1) and j < len(arr2) and k < len(arr3):
     
     if arr1[i] < arr2[j]:
         i += 1
-    elif arr1[j] < arr3[k]:
+    # elif arr1[j] < arr3[k]:
         j += 1
     else: 
         k += 1
