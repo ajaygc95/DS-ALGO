@@ -1,17 +1,17 @@
-# edges = None
+edges = None
 
-# component = None#something
+component = None#something
 
-# def find(x):
-#     curr = x 
-#     while component[curr] != curr:
-#         curr = component[curr]
-#     return curr
+def find(x):
+    curr = x 
+    while component[curr] != curr:
+        curr = component[curr]
+    return curr
 
-# for u, v in edges:
-#     lu = find(u)
-#     lv = find(v)
-#     if lu != lv:
+for u, v in edges:
+    lu = find(u)
+    lv = find(v)
+    if lu != lv:
 #         component[v] = component[u]
     
 
