@@ -75,8 +75,8 @@ def helper(root,x,y):
                 node.next = q[0]
             else:
                 node.next = None
-            #     pass
-            # print(x, len_q-1, node.val)
+                pass
+            print(x, len_q-1, node.val)
 
 
             if node.left :
