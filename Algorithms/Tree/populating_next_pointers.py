@@ -59,33 +59,33 @@ def helper(root,x,y):
 
     parent[root.val] = None
     if not root:
-        return []
+    #     return []
 
-    q = deque()
-    q.append(root)
+    # q = deque()
+    # q.append(root)
 
-    while q:
+    # while q:
         
-        len_q = len(q)
-        for x,y in enumerate( range(len_q)):
+    #     len_q = len(q)
+    #     for x,y in enumerate( range(len_q)):
 
-            node= q.popleft()
+    #         node= q.popleft()
 
-            if x != len_q-1:
-                node.next = q[0]
-            else:
-                node.next = None
-                pass
-            print(x, len_q-1, node.val)
+    #         if x != len_q-1:
+    #             node.next = q[0]
+    #         else:
+    #             node.next = None
+    #             pass
+    #         print(x, len_q-1, node.val)
 
 
-            if node.left :
-                q.append(node.left)
+    #         if node.left :
+    #             q.append(node.left)
             
-            if node.right:
-                q.append(node.right)
+    #         if node.right:
+    #             q.append(node.right)
         
-    return root
+    # return root
         
 
 
