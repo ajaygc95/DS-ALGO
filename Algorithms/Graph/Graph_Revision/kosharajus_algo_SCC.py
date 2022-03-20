@@ -10,4 +10,4 @@ timestamp = None
 departure = None
 
 def dfs(node):
-    pass
+    
