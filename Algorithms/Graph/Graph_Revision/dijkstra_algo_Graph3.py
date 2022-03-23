@@ -12,7 +12,6 @@ captured = [-1] * len(adjlist)
 
 print(adjlist)
 
-
 # pq = [(0,2)]
 # numcaptured = 0
 # lastdist = 0
