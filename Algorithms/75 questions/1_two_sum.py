@@ -1,31 +1,33 @@
+input = [2,7,11,15]
+target = 9
 
-coins = [9,1,6]
-amount = 11
+left = 0
+right = len(input)-1
 
-result = []
+dict1 = {}
 
-def helper(pos, slate, target):
+while left <= right:
 
-    if target < 0:
-        return 
+    print(input[left])
 
-    if target == 0:
-        result.append(slate[:])
+    remaining = target - input[left]
 
-    
-    for coin in coins:
-        if target-coin >= 0:
+    if input[left] in dict1:
+        print(dict1[input[left]], left)
+        break
+    else:
+        dict1[remaining] = left
 
-            slate.append(coin)
-
-            helper(pos, slate, target-coin)
-            
-            slate.pop()
+    left += 1
 
 
-helper(0, [], amount)
+# while left < right:
 
-print( min(result, key=len))
-            
-
+#     if input[left] + input[right]  < target:
+#         left += 1
+#     elif input[left] + input[right] > target:
+#         right -=1 
+#     else:
+#         print(left, right)
+#         break
 
