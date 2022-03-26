@@ -1,5 +1,3 @@
-import tarfile
-
 
 coins = [9,1,6]
 amount = 11
@@ -28,9 +26,6 @@ def helper(pos, slate, target):
 helper(0, [], amount)
 
 print( min(result, key=len))
-
-
-
             
 
 
