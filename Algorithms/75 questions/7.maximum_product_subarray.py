@@ -1,12 +1,13 @@
-nums = [-2,3,-4]
+nums = [2, 3, -2, 4]
 
-max_p = nums[0]
+rest = nums[0]
 
-for i in range(len(nums)):
-    total_cost = nums[i]
-    for j in range(i+1, len(nums)):
-        print(nums[i], nums[j], total_cost)
-        total_cost = total_cost * nums[j]
-        max_p = max(max_p,total_cost)
+currMin, currMax = 1, 1
+for n in nums:
 
-print(max_p)
+    currMax = max(n*currMax, n*currMin, n)
+    currMin = min(n*currMax, n*currMin, n)
+
+    rest = max(rest, currMax, currMin)
+
+print(rest)
