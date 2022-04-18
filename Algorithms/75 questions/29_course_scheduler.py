@@ -33,7 +33,4 @@ def outer():
     return bfs(0)
     
 
-    
-    return bfs(1)
-
 print(outer)

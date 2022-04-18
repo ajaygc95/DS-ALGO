@@ -1,30 +1,19 @@
-coins = [9,1,6]
-amount = 11
+adjlist = [[11,12,13,14],[21,22,23,24],[31,32,33,34]
+    ]
 
-result = []
-
-def helper(pos, slate, target):
-
-    if target < 0:
-        return 
-
-    if target == 0:
-        result.append(slate[:])
-
-    
-    for coin in coins:
-        if target-coin >= 0:
-
-            slate.append(coin)
-
-            helper(pos, slate, target-coin)
-            
-            slate.pop()
+clone = [[0]*len(adjlist) for _ in range(len(adjlist[0]))]
 
 
-helper(0, [], amount)
+for i in range(len(adjlist)):
+    for j in range( len(adjlist[0])):
+        clone[j][i] = adjlist[i][j]
 
-print( min(result, key=len))
+
+for i in range(len(clone)):
+    clone[i][0], clone[i][-1] = clone[i][-1], clone[i][0]
+for item in clone :
+    print(item)
+
             
 
 
