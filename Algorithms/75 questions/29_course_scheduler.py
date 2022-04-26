@@ -28,9 +28,9 @@ def outer():
                     q.append(nbr)
                 else:
                     if parent[node] != nbr:
-    #                     return False
-    #     return True
-    # return bfs(0)
+                        return False
+        return True
+    return bfs(0)
     
 
 print(outer)
