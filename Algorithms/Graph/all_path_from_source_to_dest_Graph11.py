@@ -24,8 +24,7 @@
 #         # # S(N) --> Same as above
 
 final = 5
-
-
+ 
 def helper(somehting):
     final += 2
 
