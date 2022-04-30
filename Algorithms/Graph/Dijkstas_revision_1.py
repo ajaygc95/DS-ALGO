@@ -13,22 +13,23 @@ captured = [-1]* len(adj)
 pq = [(k,0)]
 
 totaldist = [0]
-
+capturenum = [0]
 def dijksta():
 
     while pq:
         node, dst = heapq.heappop(pq)
         print(node, dst)
-
         if captured[node] != -1:
             continue
-
         captured[node] = dst
         totaldist[0] = dst
+        capturenum[0] += 1
         for nbr, w in adj[node]:
             if captured[nbr] == -1:
                 heapq.heappush(pq, (nbr, w+dst))
 
 dijksta()
-print(totaldist)
-
+if capturenum[0] == n:
+    print(totaldist[0])
+else:
+    print("Come On")

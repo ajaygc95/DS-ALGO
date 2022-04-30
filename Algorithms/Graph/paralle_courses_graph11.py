@@ -33,7 +33,6 @@
 #         return False
 
 
-
 #     for v in range(1, len(adjlist)):
 #         if visited[v] == -1:
 #             if helper(v):
@@ -47,7 +46,6 @@
 #             dptable[nbr] = max(dptable[nbr], 1 + dptable[curr])
     
 #     return dptable
-
 
 # store = outer ( n, relations)
 # print(store)
@@ -66,4 +64,3 @@ def outer():
 
 outer()
 
-# print(result)
