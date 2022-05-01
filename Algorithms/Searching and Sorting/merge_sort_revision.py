@@ -1,13 +1,19 @@
 arr = [ 5, 8, 3, 9, 4, 1, 7 ]
 
 def helper(arr, start, end):
+
     print(arr[start:end])
-    if len(arr[start:end]) <= 1:
-        return arr
+
+    if start == end:
+        return 
+
     mid = (start + end)//2
 
-    left = helper(arr, start , mid)
-    right = helper(arr, mid+1, end)
+    left = arr[:mid]
+    right = arr[mid:]
+
+    helper(arr,start,mid)
+    helper(arr, mid+1, end)
 
     i = j = 0
     k = 0
@@ -23,11 +29,13 @@ def helper(arr, start, end):
             aux.append(right[j])
             j += 1
             k += 1
-
-
-
-
-
+    while i < len(left):
+        aux.append(left[i])
+        i += 1
+    
+    while j < len(right):
+        aux.append(right[j])
+        j += 1
 
 
 helper(arr, 0, len(arr))

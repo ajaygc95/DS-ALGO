@@ -72,11 +72,9 @@ def merge_sort(arr):
     while i < len(left) and j < len(right):
 
         if left[i] <= right[j]:
-            print("This called:",i,j,k)
             arr[k] = left[i]
             i += 1
         else:
-            print("else called",i,j,k)
             arr[k] = right[j]
             j += 1
         k += 1
@@ -90,7 +88,9 @@ def merge_sort(arr):
         arr[k] = right[j]
         j += 1
         k += 1
-    print(arr)
+
+
 
 
 merge_sort(arr)
+print(arr)

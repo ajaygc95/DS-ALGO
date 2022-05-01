@@ -1,4 +1,4 @@
-import random
+
 input =  [6,5,7,4,8,3,9,2,1]
 target = 2
 

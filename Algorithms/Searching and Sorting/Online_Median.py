@@ -1,72 +1,38 @@
 
 import heapq
+from turtle import st
 stream = [1,2,3,4,5]
 
 left = []
-right = []
+right = [8,9,10]
 
 
-heapq._heapify_max(left)
-heapq.heapify(right)
+heapq._heapify_max(right)
+yes = heapq.heappop(right)
 
-values = []
+print(yes)
+# heapq._heapify_max(left)
+# heapq.heapify(right)
 
-def valid(left, right):
+# values = []
 
-    if left[0] > right[0]:
-        lefti = heapq._heappop_max(left)
-        righti = heapq.heappop(right)
+# def valid(left, right):
 
-        heapq.heappush(right,lefti)
-        heapq.heappush(left, righti)
-        heapq._heapify_max(left)
+#     if left[0] > right[0]:
+#         lefti = heapq._heappop_max(left)
+#         righti = heapq.heappop(right)
 
-
-for i in stream:
-    heapq.heappush(left, i)
-    heapq._heapify_max(left)
-
-    if left and right:
-        valid(left, right)
-
-    if len(left) - len(right)>1:
-        item = heapq._heappop_max(left)
-        heapq.heappush(right,item)
-
-        valid(left, right)
-    
-    if len(right)-len(left)>1:
-        item = heapq.heappop(right)
-        heapq.heappush(left,i)
-        heapq._heapify_max(left)
-        valid(left, right)
-
-    if len(right) > len(left):
-        values.append(right[0])
-    
-    elif len(left)> len(right):
-        values.append(left[0])
-    
-    else:
-        values.append((left[0]+right[0])//2)
-
-    print(left,right)
+#         heapq.heappush(right,lefti)
+#         heapq.heappush(left, righti)
+#         heapq._heapify_max(left)
 
 
-print(values)
-
-
-
-
-
-
-
-
-
-# for i in input:
-
-#     heapq.heappush(left,i)
+# for i in stream:
+#     heapq.heappush(left, i)
 #     heapq._heapify_max(left)
+
+#     if left and right:
+#         valid(left, right)
 
 #     if len(left) - len(right)>1:
 #         item = heapq._heappop_max(left)
@@ -79,8 +45,6 @@ print(values)
 #         heapq.heappush(left,i)
 #         heapq._heapify_max(left)
 #         valid(left, right)
-    
-
 
 #     if len(right) > len(left):
 #         values.append(right[0])
@@ -91,34 +55,73 @@ print(values)
 #     else:
 #         values.append((left[0]+right[0])//2)
 
-
 #     print(left,right)
+
+
 # print(values)
 
-    # if abs(len(left) - len(right)) == 1 or abs(len(left) - len(right))==0 :
 
-    #     heapq.heappush(left,i)
-    #     heapq._heapify_max(left)
 
-    #     if len(left)-len(right)>1:
 
-    #         item = heapq._heappop_max(left)
-    #         print("item :", item)
-    #         heapq.heappush(right, item)
+
+
+
+
+
+# # for i in input:
+
+# #     heapq.heappush(left,i)
+# #     heapq._heapify_max(left)
+
+# #     if len(left) - len(right)>1:
+# #         item = heapq._heappop_max(left)
+# #         heapq.heappush(right,item)
+
+# #         valid(left, right)
+    
+# #     if len(right)-len(left)>1:
+# #         item = heapq.heappop(right)
+# #         heapq.heappush(left,i)
+# #         heapq._heapify_max(left)
+# #         valid(left, right)
+    
+
+
+# #     if len(right) > len(left):
+# #         values.append(right[0])
+    
+# #     elif len(left)> len(right):
+# #         values.append(left[0])
+    
+# #     else:
+# #         values.append((left[0]+right[0])//2)
+
+
+# #     print(left,right)
+# # print(values)
+
+#     # if abs(len(left) - len(right)) == 1 or abs(len(left) - len(right))==0 :
+
+#     #     heapq.heappush(left,i)
+#     #     heapq._heapify_max(left)
+
+#     #     if len(left)-len(right)>1:
+
+#     #         item = heapq._heappop_max(left)
+#     #         print("item :", item)
+#     #         heapq.heappush(right, item)
         
-    #     if len(left)>len(right):
-    #         values.append(left[0])
-    #     elif len(right)>len(left):
-    #         values.append(right[0])
+#     #     if len(left)>len(right):
+#     #         values.append(left[0])
+#     #     elif len(right)>len(left):
+#     #         values.append(right[0])
 
-    #     else:
-    #         values.append((left[0]+right[0])//2)
-
-
-# print(left, right)
-# print(values)
+#     #     else:
+#     #         values.append((left[0]+right[0])//2)
 
 
+# # print(left, right)
+# # print(values)
 
 
 
@@ -138,29 +141,31 @@ print(values)
 
 
 
-# for i in input:
 
-#     heapq.heappush(heap,i)
 
-#     print(heap)
+# # for i in input:
 
-#     mid = len(heap)%2
-#     median = len(heap)//2
-#     if len(heap)<1:
-#         values.append(heap[0])
+# #     heapq.heappush(heap,i)
+
+# #     print(heap)
+
+# #     mid = len(heap)%2
+# #     median = len(heap)//2
+# #     if len(heap)<1:
+# #         values.append(heap[0])
 
       
-#     else:
-#         value = (heap[median-1] + heap[median])//2
+# #     else:
+# #         value = (heap[median-1] + heap[median])//2
 
-#         if mid == 1:
-#             # print(heap[median])
-#             values.append(heap[median-1])
-#         else:
-#             # print(heap[median-1], heap[median])
-#             values.append(value)
+# #         if mid == 1:
+# #             # print(heap[median])
+# #             values.append(heap[median-1])
+# #         else:
+# #             # print(heap[median-1], heap[median])
+# #             values.append(value)
 
 
 
-# # print(values)
+# # # print(values)
 
