@@ -30,6 +30,8 @@ print(yes)
 # for i in stream:
 #     heapq.heappush(left, i)
 #     heapq._heapify_max(left)
+I didn't do anything today 
+
 
 #     if left and right:
 #         valid(left, right)
