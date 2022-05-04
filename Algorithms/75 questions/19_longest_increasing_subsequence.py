@@ -1,23 +1,25 @@
-given = "raraba"
-given2 = [1,2,3]
+from ast import List
+from cmath import inf
+
+
+nums = [0,1,0,3,2,3]
 res = []
 
-def swap(arr, a, b):
-    arr[a],arr[b] = arr[b],arr[a]
 
-def helper(arr, pos, slate):
-    if len(arr) == pos:
-        res.append('|'.join(slate[:]))
-        return
+def helper(arr, pos, prev):
     
-    for i in range(pos+1, len(arr)+1):
-        if arr[pos:i] == arr[pos:i][::-1]:
-            slate.append(arr[pos:i])
-            helper(arr, i, slate)
-            slate.pop()
+    if pos == len(arr):
+        return 0
+    
+    taken = -inf
+    
+    nottaken = helper(arr, pos+1, prev)
+    
+    if arr[pos] > prev:
+        taken = 1 + helper(arr, pos+1, arr[pos])
+    
 
+    return max(taken, nottaken)
 
-helper(given, 0,[])
-
-print(res)
+print(helper(nums,0,-inf))
 
