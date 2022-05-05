@@ -17,7 +17,6 @@ def helper(arr, pos, prev):
     
     if arr[pos] > prev:
         taken = 1 + helper(arr, pos+1, arr[pos])
-    
 
     return max(taken, nottaken)
 
