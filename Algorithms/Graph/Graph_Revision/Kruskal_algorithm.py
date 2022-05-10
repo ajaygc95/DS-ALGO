@@ -9,7 +9,8 @@ from operator import itemgetter
 input = [(0,1,4), (1,2,3),(0,2,2)]
 n = 3
 connection = sorted(input, key=itemgetter(2))
-
+# connection = input
+print(connection)
 size = [1] * (n)
 parent = [x for x in range(n)]
 components = 3
