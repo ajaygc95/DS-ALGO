@@ -42,6 +42,5 @@ if components == 1:
 else: 
     print("-1")
 
-we will see something
 
 

@@ -4,7 +4,6 @@ from time import time
 n = 5
 input = [(1,2),(2,3),(3,1),(3,4),(4,5),(5,4)]
 
-
 def outer(input):
 
     adjlist = [[] for _ in range(n+1)]
