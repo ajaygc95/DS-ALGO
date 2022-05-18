@@ -1,26 +1,63 @@
 input = "a1z"
 
-globalbox = []
-def helper(arr, pos, slate):
+# globalbox = []
+# def helper(arr, pos, slate):
 
-    if len(arr) == pos:
-        globalbox.append(''.join(slate[:]))
-        return
+#     if len(arr) == pos:
+#         globalbox.append(''.join(slate[:]))
+#         return
     
-    if arr[pos].isdigit():
-        helper(arr,pos+1, slate + [arr[pos]])
-    else:
-        helper(arr, pos+1, slate +[arr[pos].upper()])
-        helper(arr, pos+1, slate +[arr[pos].lower()])
+#     if arr[pos].isdigit():
+#         helper(arr,pos+1, slate + [arr[pos]])
+#     else:
+#         helper(arr, pos+1, slate +[arr[pos].upper()])
+#         helper(arr, pos+1, slate +[arr[pos].lower()])
 
 
-helper(input,0,[])
+# helper(input,0,[])
 
-print(globalbox)
-
-
+# print(globalbox)
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+s = "a1b2"
+
+for i in range(len(s)):
+    if s[i].isdigit():
+        print(s[i])
 
 
 
