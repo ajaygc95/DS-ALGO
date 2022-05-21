@@ -47,5 +47,5 @@ class Solution:
                 for (nbr, w ) in adjlist[node]:
                     heapq.heappush(pq,(dist+w, level+1, nbr))
         return -1
-    didn't do anything today
+
     # T(n) = O(  b^(K+1)  )
