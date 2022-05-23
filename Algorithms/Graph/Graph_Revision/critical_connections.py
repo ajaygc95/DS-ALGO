@@ -36,11 +36,10 @@ def dfs(node):
     if lowestarr[node] == arrival[node] and node != 0:
         res.append((node, parent[node]))
     
-    return lowestarr[node]
+#     return lowestarr[node]
 
-dfs(0)
-print(res)
-        
+# dfs(0)
+# print(res)        
 
 
 
