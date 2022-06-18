@@ -17,10 +17,10 @@ class Solution:
                 rightval = helper(node.right)
             
             mytilt = abs(leftval-rightval)
-            global[0] += mytilt
+            result[0] += mytilt
             
             return node.val + rightval + leftval
         
         helper(root)
-        retrun result[0]
+        return result[0]
         
