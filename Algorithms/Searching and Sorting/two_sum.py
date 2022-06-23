@@ -1,33 +1,17 @@
 import re
 
-given_list = [-1,0,1,2,-1,-4]
+given_list = [1,2,5,8]
 
 target = 3
 
 
-result = set()
-
-def helper(nums, target):
-    nums.sort()
-    hash_map = {}
-    i = 0
-    j = len(nums)-1
-
-    while i <= j:
-        remaining = target - nums[i]
-        if nums[i] in hash_map :
-            result.add((target,remaining, nums[i]))
-            return
-        else:
-            hash_map[remaining] = i
-
-        i += 1
+given_list.sort()
 
 for i in range(len(given_list)):
-    helper(given_list[i+1:], given_list[i])
 
-print(result)
-
+    for j in range(i+1,len(given_list)):
+            sum1 = given_list[i] + given_list[j]
+            print(sum1)
 
 
 
