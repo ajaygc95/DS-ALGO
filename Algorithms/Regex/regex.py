@@ -47,8 +47,8 @@ https://www.nasa.com
 # pattern = re.compile(r'(Mr|Ms|Mrs)\.?\s[A-Z]\w*') --> |(pipe) is or ? is optional and * for 0 or any + 1 or more
 # pattern = re.compile(r'[a-zA-Z0-9.-]+@[a-z]+\.(com|edu|net)') --> matching emails
 
-pattern = re.compile(r'https?://(www\.)?\w+\.\w+')
+pattern = re.compile(r'https?://(www\.)?(\w+)(\.\w+)')
 matches = pattern.finditer(urls)
 
 for match in matches:
-    print(match)
+    print(match.group(2))

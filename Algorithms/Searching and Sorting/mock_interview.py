@@ -36,5 +36,25 @@
 # to_print = getMiddleCourse(input)
 # print(to_print)
 
+from calendar import c
+import typing
 
+def random(planpoint_id, plan_name, plan_namespace):
+    print(f"planpoint_id: {planpoint_id} ",)
+    print(f"planpoint_id: {plan_name}",)
+    print(f"planpoint_id: {plan_namespace}",)
+    
+def something(planpoint_id:str=None, plan_name= None, plan_namespace = None, **kwargs):
 
+    print(f"planpoint_id: {planpoint_id}",)
+    print(f"plan_name: {plan_name}",)
+    print(f"plan_namespace: {plan_namespace}",)
+    # if kwargs.get("extra"):
+    #     print(f"extra: {kwargs.get('extra')}",)
+
+def caller(**kwargs):
+    something(**kwargs)
+
+caller(planpoint_id="plan_point-id", plan_name= "plan_name", plan_namespace = "plan_namespace", extra="extara-param")
+
+# something(planpoint_id="234123",plan_name="alksjd;fl", plan_namespace="apoisfjusa")
