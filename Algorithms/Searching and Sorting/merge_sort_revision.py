@@ -32,10 +32,9 @@ def helper(arr, start, end):
     while i < len(left):
         aux.append(left[i])
         i += 1
-    
+
     while j < len(right):
         aux.append(right[j])
         j += 1
-
 
 helper(arr, 0, len(arr))

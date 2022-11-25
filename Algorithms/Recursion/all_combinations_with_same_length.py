@@ -1,31 +1,27 @@
-input = [1,2,3]
+nums = [1,2,3]
 
 def swap(arr,a,b):
     arr[a],arr[b] = arr[b], arr[a]
 
+res  = []
+def helper(arr, position, slate):
+    if len(arr) == position:
+        res.append(slate[:])
+        return 
 
-def outer(input):
+    for pick in range(position,len(arr)):
+        swap(arr, position, pick)
+        helper(arr, position+1, slate+[arr[position]])
+        swap(arr, position, pick)
 
-    result = []
-    def helper(arr, pos, slate):
 
-        if pos == len(arr):
-            result.append(slate[:])
-            return
-        
-        for item in range(pos, len(arr)):
-            swap(arr, item, pos)
-            slate.append(arr[pos])
-            helper(arr, pos+1, slate)
-            slate.pop()
-            swap(arr ,item,pos)
-    
-    helper(input, 0, [])
 
-    return result
 
-store = outer(input)
-print(store)
+helper(nums, 0, [])
+print(f"res: {res}")
+
+
+
 
 
 

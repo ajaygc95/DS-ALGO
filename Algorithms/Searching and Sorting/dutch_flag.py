@@ -9,26 +9,26 @@ def helper(arr):
 
     total_len = len(arr)-1
 
-    r = 0
-    g= 0
-    b = total_len
+    start = 0
+    middle= 0
+    end = total_len
 
-    while g < b:
+    while middle <= end:
 
-        print(arr[g])
-        if arr[g] == 'R':
-            swap(arr, g, r)
-            r += 1
+        print(arr[middle])
+        if arr[middle] == 'R':
+            swap(arr, middle, start)
+            start += 1
 
-        if arr[g] == "B":
-            swap(arr, g, b)
-            b -= 1
+        if arr[middle] == "B":
+            swap(arr, middle, end)
+            end -= 1
 
-            if arr[g] == "R":
-                swap(arr,g,r)
-                r += 1
+            if arr[middle] == "R":
+                swap(arr,middle,start)
+                start += 1
 
-        g += 1
+        middle += 1
 
 helper(given_list)
 print(given_list)
@@ -39,7 +39,7 @@ print(given_list)
 
 #     r = 0
 #     g = 0
-#     b = -1
+#     end = -1
 
 #     for i in range(len(arr)):
 
