@@ -12,23 +12,5 @@ captured = [-1] * len(adjlist)
 
 print(adjlist)
 
-# pq = [(0,2)]
-# numcaptured = 0
-# lastdist = 0
-# while pq:
-#     (dst, node) = heapq.heappop(pq)
-#     print(dst,node)
 
-#     if captured[node] != -1:
-#         continue
-
-#     captured[node] = dst
-#     numcaptured += 1
-#     lastdist = dst
-#     for nbr, w in adjlist[node]:
-#         if captured[nbr] == -1:
-#             heapq.heappush(pq, (w+captured[node], nbr))
-
-# if numcaptured == n:
-#     print(lastdist)
 

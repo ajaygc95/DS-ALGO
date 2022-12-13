@@ -3,8 +3,6 @@
 def swap(a,b,arr):
     arr[a], arr[b] = arr[b], arr[a]
 
-
-
 """
 parent = floor( Index -1 / 2) 
 left_chiled = 2*index + 1

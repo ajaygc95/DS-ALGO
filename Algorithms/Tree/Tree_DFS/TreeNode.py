@@ -1,3 +1,4 @@
+import collections
 class TreeNode:
     def __init__(self, val=0) -> None:
         self.val = val
@@ -49,7 +50,34 @@ class TreeNode:
             curr = curr.right
         return curr.val
     
-    
+    def delete(self, key):
+        print("Delete Started .....")
+
+        curr = self
+        while curr:
+            if key == curr.val:
+                break
+            if key < curr.val:
+                curr = curr.left
+            else:
+                curr = curr.right
+        prev = curr
+        succ = curr
+        if curr.left and curr.right:
+   
+            while succ.left:
+                prev = succ
+                succ = succ.left
+
+        curr.val = succ.val
+        if succ is prev.left:
+            prev.left = succ.right
+        else: # succ is right
+            prev.right = succ.right
+
+        return self
+        
+        
 def succesor(root, node):
     if not root:
         return 
@@ -76,8 +104,6 @@ def succesor(root, node):
     return prev.val
 
 
-
-    
 def predecessor(root, node):
     print("pred")
     if not root:
@@ -100,29 +126,44 @@ def predecessor(root, node):
         return curr.val
     
     return ancester.val
-    
-
-
-       
+     
 tree = TreeNode(17)
 
-tree.insert(10)
-tree.insert(5)
-tree.insert(0)
-tree.insert(15)
-tree.insert(16)
-tree.insert(11)
-tree.insert(20)
-tree.insert(25)
-tree.insert(18)
-tree.insert(22)
-tree.insert(23)
-tree.insert(24)
-result = tree.view(tree, [])
-print(result)
+nums = [44, 17, 88, 8, 32, 65, 97, 28, 54, 82, 93, 29, 76, 68, 80]
+
+for item in nums:
+    tree.insert(item)
+# result = tree.view(tree, [])
+# print(result)
+# delete_tree = tree.delete(8)
+# deleted_result = tree.view(delete_tree, [])
+# print(deleted_result)
 # print(tree.tree_min())
 # print(tree.max_tree())
-two_two = tree.right.right.left.right.right
-succ = succesor(tree, two_two)
-pred = predecessor(tree, two_two)
-print(f"pred: {pred} succ: {succ}")
+# two_two = tree.right.right.left.right.right
+# succ = succesor(tree, two_two)
+# pred = predecessor(tree, two_two)
+
+# print(f"pred: {pred} succ: {succ}")
+print("printing Tree ")
+print("===============================")
+def bfs(tree):
+    queue = collections.deque([tree])
+    res = []
+    while queue:
+        len_q = len(queue)
+        temp = []
+        for _ in range(len_q):
+            node = queue.popleft()
+            temp.append(node.val)
+            if node.left:
+                queue.append(node.left)
+            if node.right:
+                queue.append(node.right)
+        res.append(temp)
+    return res
+result = bfs(tree)
+for item in result:
+    print(item)
+    
+
