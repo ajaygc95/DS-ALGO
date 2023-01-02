@@ -23,7 +23,7 @@ class Solution:
             left_length = inorder_index-in_start
 
             new_root = TreeNode(root_number)
-
+            # +1 is not needed in pre_start+left_length
             new_root.left = dfs(pre_start+1, pre_start+left_length, in_start, inorder_index-1)
             new_root.right = dfs(pre_start+1+left_length, pre_end, inorder_index+1, in_end)
 
